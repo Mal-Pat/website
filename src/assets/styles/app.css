@@ -20,10 +20,10 @@
   /* Primary */
   --primary: 195 95% 85%;
   /* Foreground */
-  --foreground: 0 0% 98%;
+  --foreground: 0 0% 70%;
   --muted-foreground: 240 5% 74.9%;
   /* Background */
-  --background: 240 20.54% 5.2%;
+  --background: 240 10% 10%;
   --muted: 240 5.9% 13%;
   --card: 240 3.7% 24.9%;
 
@@ -45,4 +45,9 @@ a {
   &:hover {
     color: hsl(var(--primary) / var(--un-text-opacity, 1));
   }
+}
+
+/* Hide the blur image used as a shadow effect */
+#blurImage {
+  display: none !important;
 }
