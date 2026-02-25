@@ -6,6 +6,7 @@ export const theme: ThemeUserConfig = {
   title: 'Malhar A. Patel',
   /** Will be used in index page & copyright declaration */
   author: 'Malhar A. Patel',
+  location: 'Pune',
   /** Description metadata for your website. Can be used in page metadata. */
   description: 'Personal Website for Malhar A. Patel',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
@@ -26,7 +27,7 @@ export const theme: ThemeUserConfig = {
   },
   /** Set a logo image to show in the homepage. */
   logo: {
-    src: '/src/assets/avatar.png',
+    src: '/src/assets/avatar.jpg',
     alt: 'Avatar'
   },
 
@@ -140,7 +141,7 @@ export const integ: IntegrationUserConfig = {
   // [Typography]
   // https://unocss.dev/presets/typography
   typography: {
-    class: 'prose text-base',
+    class: 'prose text-lg',
     // The style of blockquote font `normal` / `italic` (default to italic in typography)
     blockquoteStyle: 'italic',
     // The style of inline code block `code` / `modern` (default to code in typography)
@@ -158,7 +159,7 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
+    enable: false,
     // Server service link
     server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Show meta info for comments
