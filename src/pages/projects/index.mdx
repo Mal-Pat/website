@@ -1,0 +1,55 @@
+---
+layout: '@/layouts/IndividualPage.astro'
+title: 'Projects'
+---
+
+import ProjectSection from '@/components/projects/ProjectSection.astro'
+
+### Contributor
+
+<ProjectSection
+  projects={[
+    {
+      name: 'LeanAide',
+      description: 'Autoformalization Tool written in Lean 4',
+      links: [
+        { type: 'github', href: 'https://github.com/siddhartha-gadgil/LeanAide' }
+      ]
+    },
+    {
+      name: 'formal-conjectures',
+      description: 'A collection of formalized statements of conjectures in Lean',
+      links: [
+        { type: 'github', href: 'https://github.com/google-deepmind/formal-conjectures' }
+      ]
+    }
+  ]}
+/>
+
+### Personal - Lean 4
+
+<ProjectSection
+  projects={[
+    {
+      name: 'Lean-Scraper',
+      description: 'Scrape Lean and Mathlib to get all the constants and their information',
+      links: [
+        { type: 'github', href: 'https://github.com/Mal-Pat/Lean-Scraper' }
+      ]
+    },
+    {
+      name: 'Go-Lean',
+      description: 'Go (囲碁) / Baduk (바둑) / Weiqi (圍棋) in Lean 4',
+      links: [
+        { type: 'github', href: 'https://github.com/Mal-Pat/Go-Lean' }
+      ]
+    },
+    {
+      name: 'lean-llm-client',
+      description: 'Lean 4 Client to make API calls to LLMs',
+      links: [
+        { type: 'github', href: 'https://github.com/Mal-Pat/lean-llm-client' }
+      ]
+    }
+  ]}
+/>
