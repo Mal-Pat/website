@@ -7,6 +7,9 @@ import { cn } from 'astro-pure/utils'
 import config from 'virtual:config'
 import PageLayout from '@/layouts/BaseLayout.astro'
 
+// Plugin styles
+import 'katex/dist/katex.min.css'
+
 type Props = MarkdownLayoutProps<{
   title: string
   description: string

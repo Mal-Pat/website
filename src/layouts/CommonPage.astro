@@ -4,6 +4,9 @@ import type { MarkdownHeading } from 'astro'
 import { TOC } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
 
+// Plugin styles
+import 'katex/dist/katex.min.css'
+
 interface Props {
   title: string
   headings?: MarkdownHeading[]
