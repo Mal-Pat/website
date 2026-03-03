@@ -6,7 +6,6 @@ export const theme: ThemeUserConfig = {
   title: 'Malhar A. Patel',
   /** Will be used in index page & copyright declaration */
   author: 'Malhar A. Patel',
-  location: 'Pune',
   /** Description metadata for your website. Can be used in page metadata. */
   description: 'Personal Website for Malhar A. Patel',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
