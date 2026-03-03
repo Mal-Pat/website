@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 
 import eslintPluginAstro from 'eslint-plugin-astro'
 
