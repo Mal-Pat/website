@@ -71,7 +71,8 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/Mal-Pat/website' }
+    social: { github: 'https://github.com/Mal-Pat',
+              x: 'https://x.com/malhar_a_patel' }
   },
 
   // [Content]
