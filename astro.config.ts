@@ -27,7 +27,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
-  site: 'https://astro-pure.js.org',
+  site: 'https://malhar-patel.com',
   // Deploy to a sub path
   // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
