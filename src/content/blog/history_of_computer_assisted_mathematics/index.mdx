@@ -1,0 +1,44 @@
+---
+title: 'A Brief History of Computer-Assisted Mathematics'
+description: 'Timeline of (some) events in computer-assisted mathematics and formalization in proof assistants' # (Required, 10 to 160)
+publishDate: '2026-03-11' # (Required, Date)
+tags:
+  - Computer-Assisted Math
+  - Formalization
+  - Autoformalization
+  - Proof Assistants
+  - Math
+---
+
+import { Timeline } from 'astro-pure/user'
+
+<p style={{ textAlign: "justify" }}>With the recent rise of proof assistants and AI systems, computers are set to be indispensable tools for mathematicians in the future. Let's take a look at important moments in the history of computer-assisted mathematics, from symbolic systems and human formalizations to modern AI and autoformalization tools.</p>
+
+## Timeline
+
+<Timeline events={
+  [
+    { date: '1956', content: '<a href="https://en.wikipedia.org/wiki/Logic_Theorist">Logic Theorist</a> proves 38 theorems in Principia Mathematica' },
+    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem">Gödel\'s Incompleteness Theorem</a> is formalized in Nqthm' },
+    { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem">Four-Color Theorem</a> becomes one of the first major computer-assisted proofs' },
+    { date: '1996', content: '<a href="https://en.wikipedia.org/wiki/Robbins_algebra">Robbins Conjecture</a> is solved by an equational prover (EQP)' },
+    { date: '1998', content: '<a href="https://en.wikipedia.org/wiki/Kepler_conjecture">Kepler Conjecture</a> is solved via a computer proof-by-exhaustion' },
+    { date: '2005', content: '<a href="https://github.com/rocq-community/fourcolor">Four-Color Theorem</a> is formalized in Rocq' },
+    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Prime_number_theorem#Computer_verifications">Prime Number Theorem</a> is formalized in Isabelle' },
+    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Jordan_curve_theorem">Jordan Curve Theorem</a> is formalized in HOL and Mizar (separately)' },
+    { date: '2012', content: '<a href="https://github.com/math-comp/odd-order">Feit-Thompson Theorem</a> is formalized in Rocq' },
+    { date: '2014', content: '<a href="https://en.wikipedia.org/wiki/Kepler_conjecture">Kepler Conjecture</a> is formalized in Isabelle and HOL' },
+    { date: '2016', content: '<a href="https://en.wikipedia.org/wiki/Boolean_Pythagorean_triples_problem">Boolean Pythagorean Triples Problem</a> is solved using a SAT Solver' },
+    { date: '2020', content: '<a href="https://leanprover-community.github.io/lean-perfectoid-spaces/">Perfectoid Spaces</a> is formalized in Lean 4' },
+    { date: '2022', content: '<a href="https://leanprover-community.github.io/blog/posts/lte-final/">Liquid Tensor Experiment</a> is completed in Lean 4' },
+    { date: '2022', content: '<a href="https://b-mehta.github.io/unit-fractions/">Unit Fractions Density Conjecture</a> is formalized in Lean 4 before paper review' },
+    { date: '2024', content: '<a href="https://teorth.github.io/equational_theories/">Equational Theories Project</a> is completed in Lean 4' },
+    { date: '2026', content: '<a href="https://www.math.inc/sphere-packing">Sphere Packing in 8 & 24-dim</a> is auto-formalized (starting from a partial human formalization) in Lean 4 by Gauss' }
+  ]
+} />
+
+## Notes
+
+<p style={{ textAlign: "justify" }}>This list will be updated with time. The criteria for choosing the currently listed events are purely subjective. Let me know if any other important events should be added to this list.</p>
+
+<p style={{ textAlign: "justify" }}>There are a lot of progress being made in autoformalizations since the last year. These will be included in the timeline soon.</p>
