@@ -24,7 +24,7 @@ const shares = {
     link: `http://service.weibo.com/share/share.php?url=${Astro.url}&title=${title}&pic=${image}`
   },
   x: {
-    link: `https://x.com/intent/tweet?text='${title}'&url='${Astro.url}'&via='${config.author}'`
+    link: `https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url)}&via=malhar_a_patel`
   },
   bluesky: {
     link: `https://bsky.app/intent/compose?text=${title}%0A${Astro.url}`

@@ -1,6 +1,6 @@
 ---
 title: 'A Brief History of Computer-Assisted Mathematics'
-description: 'Timeline of (some) events in computer-assisted mathematics and formalization in proof assistants' # (Required, 10 to 160)
+description: 'Timeline of some events in computer-assisted mathematics and formalization in proof assistants'
 publishDate: '2026-03-11' # (Required, Date)
 tags:
   - Computer-Assisted Math
@@ -18,24 +18,37 @@ import { Timeline } from 'astro-pure/user'
 
 <Timeline events={
   [
-    { date: '1956', content: '<a href="https://en.wikipedia.org/wiki/Logic_Theorist">Logic Theorist</a> proves 38 theorems in Principia Mathematica' },
-    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem">Gödel\'s Incompleteness Theorem</a> is formalized in Nqthm' },
-    { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem">Four-Color Theorem</a> becomes one of the first major computer-assisted proofs' },
-    { date: '1996', content: '<a href="https://en.wikipedia.org/wiki/Robbins_algebra">Robbins Conjecture</a> is solved by an equational prover (EQP)' },
-    { date: '1998', content: '<a href="https://en.wikipedia.org/wiki/Kepler_conjecture">Kepler Conjecture</a> is solved via a computer proof-by-exhaustion' },
-    { date: '2005', content: '<a href="https://github.com/rocq-community/fourcolor">Four-Color Theorem</a> is formalized in Rocq' },
-    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Prime_number_theorem#Computer_verifications">Prime Number Theorem</a> is formalized in Isabelle' },
-    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Jordan_curve_theorem">Jordan Curve Theorem</a> is formalized in HOL and Mizar (separately)' },
-    { date: '2012', content: '<a href="https://github.com/math-comp/odd-order">Feit-Thompson Theorem</a> is formalized in Rocq' },
-    { date: '2014', content: '<a href="https://en.wikipedia.org/wiki/Kepler_conjecture">Kepler Conjecture</a> is formalized in Isabelle and HOL' },
-    { date: '2016', content: '<a href="https://en.wikipedia.org/wiki/Boolean_Pythagorean_triples_problem">Boolean Pythagorean Triples Problem</a> is solved using a SAT Solver' },
-    { date: '2020', content: '<a href="https://leanprover-community.github.io/lean-perfectoid-spaces/">Perfectoid Spaces</a> is formalized in Lean 4' },
-    { date: '2022', content: '<a href="https://leanprover-community.github.io/blog/posts/lte-final/">Liquid Tensor Experiment</a> is completed in Lean 4' },
-    { date: '2022', content: '<a href="https://b-mehta.github.io/unit-fractions/">Unit Fractions Density Conjecture</a> is formalized in Lean 4 before paper review' },
-    { date: '2024', content: '<a href="https://teorth.github.io/equational_theories/">Equational Theories Project</a> is completed in Lean 4' },
-    { date: '2026', content: '<a href="https://www.math.inc/sphere-packing">Sphere Packing in 8 & 24-dim</a> is auto-formalized (starting from a partial human formalization) in Lean 4 by Gauss' }
+    { date: '1956', content: '<a href="https://en.wikipedia.org/wiki/Logic_Theorist" target="_blank" rel="noopener noreferrer">Logic Theorist</a> proves 38 theorems in Principia Mathematica' },
+    { date: '1967', content: '<a href="https://en.wikipedia.org/wiki/Common_fixed_point_problem" target="_blank" rel="noopener noreferrer">Common Fixed-Point Problem</a> is disproved with a computer program (independently alongside a human proof)' },
+    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Feigenbaum_constants" target="_blank" rel="noopener noreferrer">Feigenbaum Constants\' Universality</a> is proved with computer-assisted interval arithmetic' },
+    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem" target="_blank" rel="noopener noreferrer">Gödel\'s Incompleteness Theorem</a> is formalized in Nqthm' },
+    { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem" target="_blank" rel="noopener noreferrer">Four-Color Theorem</a> becomes one of the first major computer-assisted proofs' },
+    { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Lam%27s_problem" target="_blank" rel="noopener noreferrer">Lam\'s Problem</a> is solved using a supercomputer' },
+    { date: '1991', content: '<a href="https://www.jstor.org/stable/2323798" target="_blank" rel="noopener noreferrer">Finite Projective Plane of Order 10</a> is proven impossible using a computer calculation' },
+    { date: '1996', content: '<a href="https://en.wikipedia.org/wiki/Robbins_algebra" target="_blank" rel="noopener noreferrer">Robbins Conjecture</a> is solved by an equational prover (EQP)' },
+    { date: '1998', content: '<a href="https://en.wikipedia.org/wiki/Kepler_conjecture" target="_blank" rel="noopener noreferrer">Kepler Conjecture</a> is solved via a computer proof-by-exhaustion' },
+    { date: '2005', content: '<a href="https://github.com/rocq-community/fourcolor" target="_blank" rel="noopener noreferrer">Four-Color Theorem</a> is formalized in Rocq' },
+    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Prime_number_theorem#Computer_verifications" target="_blank" rel="noopener noreferrer">Prime Number Theorem</a> is formalized in Isabelle' },
+    { date: '2005', content: '<a href="https://en.wikipedia.org/wiki/Jordan_curve_theorem" target="_blank" rel="noopener noreferrer">Jordan Curve Theorem</a> is formalized in HOL and Mizar (separately)' },
+    { date: '2012', content: '<a href="https://github.com/math-comp/odd-order" target="_blank" rel="noopener noreferrer">Odd Order Theorem</a> is formalized in Rocq' },
+    { date: '2014', content: '<a href="https://arxiv.org/abs/1501.02155" target="_blank" rel="noopener noreferrer">Kepler Conjecture</a> is formalized in Isabelle and HOL' },
+    { date: '2016', content: '<a href="https://en.wikipedia.org/wiki/Boolean_Pythagorean_triples_problem" target="_blank" rel="noopener noreferrer">Boolean Pythagorean Triples Problem</a> is solved using a SAT Solver' },
+    { date: '2017', content: '<a href="https://arxiv.org/abs/1711.08076" target="_blank" rel="noopener noreferrer">Schur Number Five</a> is found using a SAT Solver with a 2PB proof' },
+    { date: '2019', content: '<a href="https://www.quantamagazine.org/computer-search-settles-90-year-old-math-problem-20200819/" target="_blank" rel="noopener noreferrer">Keller\'s Conjecture</a> is resolved (last 7-dim case) using a SAT Solver' },
+    { date: '2020', content: '<a href="https://leanprover-community.github.io/lean-perfectoid-spaces/" target="_blank" rel="noopener noreferrer">Perfectoid Spaces</a> is formalized in Lean' },
+    { date: '2022', content: '<a href="https://leanprover-community.github.io/blog/posts/lte-final/" target="_blank" rel="noopener noreferrer">Liquid Tensor Experiment</a> is completed in Lean' },
+    { date: '2022', content: '<a href="https://b-mehta.github.io/unit-fractions/" target="_blank" rel="noopener noreferrer">Unit Fractions Density Conjecture</a> is formalized in Lean' },
+    { date: '2022', content: '<a href="https://teorth.github.io/pfr//" target="_blank" rel="noopener noreferrer">Polynomial Freiman-Ruzsa Conjecture</a> is formalized in Lean within 3 weeks of being solved' },
+    { date: '2022', content: '<a href="https://leanprover-community.github.io/sphere-eversion/" target="_blank" rel="noopener noreferrer">Sphere Eversion</a> is formalized in Lean' },
+    { date: '2023', content: '<a href="https://www.quantamagazine.org/the-number-15-describes-the-secret-limit-of-an-infinite-grid-20230420/" target="_blank" rel="noopener noreferrer">Packing Chromatic Number of Infinite Square Grid</a> is found using a SAT Solver' },
+    { date: '2024', content: '<a href="https://teorth.github.io/equational_theories/" target="_blank" rel="noopener noreferrer">Equational Theories Project</a> is completed in Lean' },
+    { date: '2024', content: '<a href="https://bbchallenge.org/" target="_blank" rel="noopener noreferrer">BB(5) (Busy Beaver)</a> is formalized in Rocq' },
+    { date: '2025', content: '<a href="https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/" target="_blank" rel="noopener noreferrer">AlphaEvolve</a> improves bounds on several math problems' },
+    { date: '2026', content: '<a href="https://www.math.inc/sphere-packing" target="_blank" rel="noopener noreferrer">Sphere Packing in 8 & 24-dim</a> is auto-formalized (starting from a partial human formalization) in Lean by Gauss' }
   ]
 } />
+
+<p style={{ textAlign: "justify" }}>Apart from this, there are math libraries in proof assistants like [Lean](https://leanprover-community.github.io/mathlib-overview.html), [Isabelle](https://isabelle.systems/libraries.html) and [Rocq](https://math-comp.github.io/) that have formalized most of undergrad math and some graduate math.</p>
 
 ## Notes
 

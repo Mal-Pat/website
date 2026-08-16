@@ -4,6 +4,8 @@ import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+import mdx from '@astrojs/mdx';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // Local integrations
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
@@ -66,7 +68,8 @@ export default defineConfig({
           properties: { className: ['anchor'] },
           content: { type: 'text', value: '#' }
         }
-      ]
+      ],
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
     ],
     // https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
@@ -104,6 +107,11 @@ export default defineConfig({
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
     // mdx(),
+    mdx({
+      rehypePlugins: [
+        [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
+      ]
+    }),
     AstroPureIntegration(config)
   ],
 
