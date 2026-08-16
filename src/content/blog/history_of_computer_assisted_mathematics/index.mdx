@@ -12,7 +12,7 @@ tags:
 
 import { Timeline } from 'astro-pure/user'
 
-<p style={{ textAlign: "justify" }}>With the recent rise of proof assistants and AI systems, computers are set to be indispensable tools for mathematicians in the future. Let's take a look at important moments in the history of computer-assisted mathematics, from symbolic systems and human formalizations to modern AI and autoformalization tools.</p>
+<p style={{ textAlign: "justify" }}>With the recent rise of proof assistants and AI systems, computers are set to be indispensable tools for mathematicians in the future. Let's take a look at important events in the history of computer-assisted mathematics.</p>
 
 ## Timeline
 
@@ -21,7 +21,7 @@ import { Timeline } from 'astro-pure/user'
     { date: '1956', content: '<a href="https://en.wikipedia.org/wiki/Logic_Theorist" target="_blank" rel="noopener noreferrer">Logic Theorist</a> proves 38 theorems in Principia Mathematica' },
     { date: '1967', content: '<a href="https://en.wikipedia.org/wiki/Common_fixed_point_problem" target="_blank" rel="noopener noreferrer">Common Fixed-Point Problem</a> is disproved with a computer program (independently alongside a human proof)' },
     { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Feigenbaum_constants" target="_blank" rel="noopener noreferrer">Feigenbaum Constants\' Universality</a> is proved with computer-assisted interval arithmetic' },
-    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem" target="_blank" rel="noopener noreferrer">Gödel\'s Incompleteness Theorem</a> is formalized in Nqthm' },
+    { date: '1986', content: '<a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems" target="_blank" rel="noopener noreferrer">Gödel\'s Incompleteness Theorem</a> is formalized in Nqthm' },
     { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Four_color_theorem" target="_blank" rel="noopener noreferrer">Four-Color Theorem</a> becomes one of the first major computer-assisted proofs' },
     { date: '1989', content: '<a href="https://en.wikipedia.org/wiki/Lam%27s_problem" target="_blank" rel="noopener noreferrer">Lam\'s Problem</a> is solved using a supercomputer' },
     { date: '1991', content: '<a href="https://www.jstor.org/stable/2323798" target="_blank" rel="noopener noreferrer">Finite Projective Plane of Order 10</a> is proven impossible using a computer calculation' },
@@ -36,22 +36,44 @@ import { Timeline } from 'astro-pure/user'
     { date: '2017', content: '<a href="https://arxiv.org/abs/1711.08076" target="_blank" rel="noopener noreferrer">Schur Number Five</a> is found using a SAT Solver with a 2PB proof' },
     { date: '2019', content: '<a href="https://www.quantamagazine.org/computer-search-settles-90-year-old-math-problem-20200819/" target="_blank" rel="noopener noreferrer">Keller\'s Conjecture</a> is resolved (last 7-dim case) using a SAT Solver' },
     { date: '2020', content: '<a href="https://leanprover-community.github.io/lean-perfectoid-spaces/" target="_blank" rel="noopener noreferrer">Perfectoid Spaces</a> is formalized in Lean' },
+    { date: '2021', content: '<a href="https://arxiv.org/abs/2104.14516" target="_blank" rel="noopener noreferrer">Counterexamples to Several Combinatorics Conjectures</a> are constructed via reinforcement learning' },
+    { date: '2021', content: '<a href="https://www.nature.com/articles/s41586-021-04086-x" target="_blank" rel="noopener noreferrer">New Theorems in Knot Theory & Representation Theory</a> are proved from patterns found by DeepMind using a "guided intuition" ML system' },
     { date: '2022', content: '<a href="https://leanprover-community.github.io/blog/posts/lte-final/" target="_blank" rel="noopener noreferrer">Liquid Tensor Experiment</a> is completed in Lean' },
     { date: '2022', content: '<a href="https://b-mehta.github.io/unit-fractions/" target="_blank" rel="noopener noreferrer">Unit Fractions Density Conjecture</a> is formalized in Lean' },
-    { date: '2022', content: '<a href="https://teorth.github.io/pfr//" target="_blank" rel="noopener noreferrer">Polynomial Freiman-Ruzsa Conjecture</a> is formalized in Lean within 3 weeks of being solved' },
     { date: '2022', content: '<a href="https://leanprover-community.github.io/sphere-eversion/" target="_blank" rel="noopener noreferrer">Sphere Eversion</a> is formalized in Lean' },
+    { date: '2022', content: '<a href="https://www.nature.com/articles/s41586-022-05172-4" target="_blank" rel="noopener noreferrer">AlphaTensor</a> discovers faster matrix multiplication algorithms, improving Strassen\'s 1969 two-level algorithm' },
     { date: '2023', content: '<a href="https://www.quantamagazine.org/the-number-15-describes-the-secret-limit-of-an-infinite-grid-20230420/" target="_blank" rel="noopener noreferrer">Packing Chromatic Number of Infinite Square Grid</a> is found using a SAT Solver' },
-    { date: '2024', content: '<a href="https://teorth.github.io/equational_theories/" target="_blank" rel="noopener noreferrer">Equational Theories Project</a> is completed in Lean' },
+    { date: '2023', content: '<a href="https://teorth.github.io/pfr//" target="_blank" rel="noopener noreferrer">Polynomial Freiman-Ruzsa Conjecture</a> is formalized in Lean within 3 weeks of being solved' },
+    { date: '2023', content: '<a href="https://www.nature.com/articles/s41586-023-06924-6" target="_blank" rel="noopener noreferrer">FunSearch</a> finds new cap set constructions via an LLM-based approach' },
+    { date: '2024', content: '<a href="https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/" target="_blank" rel="noopener noreferrer">AlphaGeometry</a> solves IMO geometry problems at near gold-medalist level' },
+    { date: '2024', content: '<a href="https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank" rel="noopener noreferrer">AlphaProof & AlphaGeometry 2</a> reach silver-medal level at IMO 2024, with proofs in Lean' },
     { date: '2024', content: '<a href="https://bbchallenge.org/" target="_blank" rel="noopener noreferrer">BB(5) (Busy Beaver)</a> is formalized in Rocq' },
-    { date: '2025', content: '<a href="https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/" target="_blank" rel="noopener noreferrer">AlphaEvolve</a> improves bounds on several math problems' },
-    { date: '2026', content: '<a href="https://www.math.inc/sphere-packing" target="_blank" rel="noopener noreferrer">Sphere Packing in 8 & 24-dim</a> is auto-formalized (starting from a partial human formalization) in Lean by Gauss' }
+    { date: '2024', content: '<a href="https://teorth.github.io/equational_theories/" target="_blank" rel="noopener noreferrer">Equational Theories Project</a> resolves ~22 million implications between 4,694 magma laws in Lean' },
+    { date: '2024', content: '<a href="https://arxiv.org/abs/2411.00566" target="_blank" rel="noopener noreferrer">PatternBoost</a> finds a counterexample to a 30-year-old conjecture in extremal combinatorics' },
+    { date: '2025', content: '<a href="https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/" target="_blank" rel="noopener noreferrer">AlphaEvolve</a> breaks the 56-year-old 4x4 matrix multiplication record and improves bounds on many open problems (<a href="https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/" target="_blank" rel="noopener noreferrer">Tao et al.</a>)' },
+    { date: '2025', content: '<a href="https://florisvandoorn.com/carleson/" target="_blank" rel="noopener noreferrer">Carleson\'s Theorem</a> (in generalized form) is formalized in Lean' },
+    { date: '2025', content: '<a href="https://xenaproject.wordpress.com/2025/08/03/ai-at-imo-2025-a-round-up/" target="_blank" rel="noopener noreferrer">IMO 2025 Gold Medal</a> level performance is reached by <a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noopener noreferrer">Gemini Deep Think</a> and an <a href="https://x.com/OpenAI/status/1946594928945148246" target="_blank" rel="noopener noreferrer">OpenAI model</a> with proofs in natural language, and <a href="https://github.com/harmonic-ai/IMO2025" target="_blank" rel="noopener noreferrer">Harmonic\'s Aristotle</a> with formally verified Lean proofs' },
+    { date: '2025', content: '<a href="https://www.math.inc/gauss" target="_blank" rel="noopener noreferrer">Strong Prime Number Theorem</a> is autoformalized in Lean by Gauss' },
+    { date: '2025', content: '<a href="https://deepmind.google/blog/discovering-new-solutions-to-century-old-problems-in-fluid-dynamics/" target="_blank" rel="noopener noreferrer">New Unstable Singularities</a> in fluid equations are discovered by DeepMind using physics-informed neural networks' },
+    { date: '2025', content: '<a href="https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems" target="_blank" rel="noopener noreferrer">Erdős Problems</a> are targeted by AI: GPT-5 closes ~10 listed open problems (mostly by recovering forgotten literature) and contributes a new proof for #848' },
+    { date: '2025', content: '<a href="https://xenaproject.wordpress.com/2025/12/05/formalization-of-erdos-problems/" target="_blank" rel="noopener noreferrer">Erdős Problem #124</a> is solved by Aristotle with a Lean proof (but Erdős probably intended a different formulation of #124)' },
+    { date: '2025', content: '<a href="https://github.com/AxiomMath/putnam2025" target="_blank" rel="noopener noreferrer">All 12 Putnam 2025 Problems</a> are solved in Lean by Axiom Math\'s AxiomProver' },
+    { date: '2026', content: '<a href="https://arxiv.org/abs/2601.07421" target="_blank" rel="noopener noreferrer">Erdős Problem #728</a> is solved near-autonomously by GPT-5.2 Pro, making it the first AI Erdős solution confirmed to be new to the literature' },
+    { date: '2026', content: '<a href="https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/" target="_blank" rel="noopener noreferrer">Aletheia</a> (Gemini Deep Think agent) solves several open problems in CS, economics, optimization and physics.' },
+    { date: '2026', content: '<a href="https://www.math.inc/sphere-packing" target="_blank" rel="noopener noreferrer">Sphere Packing in 8 & 24-dim</a> is autoformalized (starting from a partial human formalization) in Lean by Gauss' },
+    { date: '2026', content: '<a href="https://www.math.inc/gauss-on-github" target="_blank" rel="noopener noreferrer">Finite-field Kakeya & RH for curves</a> are autoformalized by Gauss' },
+    { date: '2026', content: '<a href="https://www.scientificamerican.com/article/ai-just-solved-an-80-year-old-erdos-problem-and-mathematicians-are-amazed/" target="_blank" rel="noopener noreferrer">Erdős\'s Unit Distance Conjecture</a> is disproved by an OpenAI model' },
+    { date: '2026', content: '<a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" target="_blank" rel="noopener noreferrer">Erdős Problem #1196</a> is resolved by an amatuer using GPT-5.4' },
+    { date: '2026', content: '<a href="https://www.scientificamerican.com/article/chatgpt-just-proved-another-50-year-old-math-conjecture/" target="_blank" rel="noopener noreferrer">Cycle Double Cover Conjecture</a> (1970) is proved by GPT-5.6 Sol, verified by Alon and Sutherland' },
+    { date: '2026', content: '<a href="https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/" target="_blank" rel="noopener noreferrer">Jacobian Conjecture</a> (1939) is disproved for n ≥ 3 by Claude\'s Fable 5' },
+    { date: '2026', content: '<a href="https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/" target="_blank" rel="noopener noreferrer">Modularity Lifting Theorem</a> is formalized in Lean in ~2 weeks with AI agents' },
+    { date: '2026', content: '<a href="https://openai.com/index/ten-advances-in-mathematics/" target="_blank" rel="noopener noreferrer">Astra</a> by OpenAI solves 10 decade-old open problems with Lean proofs' },
+    { date: '2026', content: '<a href="https://www.anthropic.com/research/riemann-zeta" target="_blank" rel="noopener noreferrer">Critical-Line Zero Proportion</a> for the Riemann zeta function is raised from 41.6% to 67.2% by an unreleased Claude model' }
   ]
 } />
 
-<p style={{ textAlign: "justify" }}>Apart from this, there are math libraries in proof assistants like [Lean](https://leanprover-community.github.io/mathlib-overview.html), [Isabelle](https://isabelle.systems/libraries.html) and [Rocq](https://math-comp.github.io/) that have formalized most of undergrad math and some graduate math.</p>
+<p style={{ textAlign: "justify" }}>Apart from this, there are math libraries in proof assistants like [Lean](https://leanprover-community.github.io/mathlib-overview.html), [Isabelle](https://isabelle.systems/libraries.html) and [Rocq](https://math-comp.github.io/) that have formalized a huge portion of undergrad math and some postgrad math, and are rapidly growing.</p>
 
 ## Notes
 
-<p style={{ textAlign: "justify" }}>This list will be updated with time. The criteria for choosing the currently listed events are purely subjective. Let me know if any other important events should be added to this list.</p>
-
-<p style={{ textAlign: "justify" }}>There's a lot of progress being made in autoformalization of math since last year. These will be included in the timeline soon.</p>
+<p style={{ textAlign: "justify" }}>The pace of AI-driven discovery and autoformalization has accelerated rapidly since 2024. Let me know if I missed any important event that should be added to this list.</p>
