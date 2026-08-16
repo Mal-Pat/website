@@ -137,6 +137,31 @@ export default defineConfig({
     AstroPureIntegration(config)
   ],
 
+  // [Vite]
+  vite: {
+    ssr: {
+      optimizeDeps: {
+        // CommonJS-only packages must be pre-bundled to ESM for the
+        // workerd-based dev server (@astrojs/cloudflare v13); otherwise
+        // they crash with "module is not defined".
+        include: ['boolbase', 'extend', 'node-html-parser'],
+        // astro-pure imports `virtual:config`, which the dep optimizer
+        // (esbuild) cannot resolve — keep it out of pre-bundling.
+        exclude: [
+          'astro-pure',
+          'astro-pure/utils',
+          'astro-pure/user',
+          'astro-pure/server',
+          'astro-pure/advanced',
+          'astro-pure/components/pages',
+          'astro-pure/components/basic',
+          'astro-pure/libs',
+          'astro-pure/types'
+        ]
+      }
+    }
+  },
+
   // [Experimental]
   experimental: {
     // Allow compatible editors to support intellisense features for content collection entries
