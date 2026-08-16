@@ -71,8 +71,10 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/Mal-Pat',
-              x: 'https://x.com/malhar_a_patel' }
+    social: [
+      { icon: 'github', label: 'GitHub', href: 'https://github.com/Mal-Pat' },
+      { icon: 'x', label: 'X', href: 'https://x.com/malhar_a_patel' }
+    ]
   },
 
   // [Content]
@@ -81,14 +83,15 @@ export const theme: ThemeUserConfig = {
     externalLinks: {
       content: ' ↗',
       /** Properties for the external links element */
-      properties: {
-        style: 'user-select:none'
-      }
+      properties: { style: 'user-select:none' }
     },
     /** Blog page size for pagination (optional) */
     blogPageSize: 8,
-    // Currently support x, bluesky
+    /** Share buttons to show */
+    // Currently support weibo, x, bluesky
     share: ['x', 'bluesky']
+    /** Enable image captions (default false) */
+    // imageCaption: true
   }
 }
 

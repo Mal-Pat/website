@@ -4,6 +4,10 @@
   "compatibility_flags": [
     "nodejs_compat",
     "disable_nodejs_process_v2"
-  ],
-  "pages_build_output_dir": "./dist"
+  ]
+  // Workers deployment (replaces the old Cloudflare Pages setup — the
+  // @astrojs/cloudflare v13 adapter no longer supports Cloudflare Pages).
+  // The adapter merges this file into dist/server/wrangler.json at build time,
+  // adding "main" and "assets" itself. To deploy manually, run:
+  //   npx wrangler deploy -c dist/server/wrangler.json
 }
