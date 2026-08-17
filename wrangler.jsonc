@@ -1,13 +1,19 @@
 {
-  "name": "website",
-  "compatibility_date": "2026-03-03", // Update to the day you deploy
-  "compatibility_flags": [
-    "nodejs_compat",
-    "disable_nodejs_process_v2"
-  ]
-  // Workers deployment (replaces the old Cloudflare Pages setup — the
-  // @astrojs/cloudflare v13 adapter no longer supports Cloudflare Pages).
-  // The adapter merges this file into dist/server/wrangler.json at build time,
-  // adding "main" and "assets" itself. To deploy manually, run:
-  //   npx wrangler deploy -c dist/server/wrangler.json
+	"name": "website",
+	"compatibility_date": "2026-03-03", // Update to the day you deploy
+	"compatibility_flags": [
+		"nodejs_compat",
+		"disable_nodejs_process_v2"
+	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "172444d599974d78b9ed411b856a1ed2"
+		}
+	]
+	// Workers deployment (replaces the old Cloudflare Pages setup — the
+	// @astrojs/cloudflare v13 adapter no longer supports Cloudflare Pages).
+	// The adapter merges this file into dist/server/wrangler.json at build time,
+	// adding "main" and "assets" itself. To deploy manually, run:
+	//   npx wrangler deploy -c dist/server/wrangler.json
 }
