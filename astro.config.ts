@@ -145,11 +145,11 @@ export default defineConfig({
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
     // mdx(),
-    mdx({
-      rehypePlugins: [
-        [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
-      ]
-    }),
+    // NOTE: don't pass remarkPlugins/rehypePlugins here — @astrojs/mdx options
+    // REPLACE the inherited `markdown` config (they are not appended), which
+    // silently drops rehypeKatex & co. for all MDX files. With no options, MDX
+    // inherits the full markdown pipeline above (external links included).
+    mdx(),
     AstroPureIntegration(config)
   ],
 

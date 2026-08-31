@@ -1,0 +1,68 @@
+---
+title: 'Demo Presentation'
+description: 'A demo deck showing slide navigation, math and code rendering.'
+publishDate: 2026-08-31
+draft: false
+---
+
+import Slide from '@/components/slides/Slide.astro'
+
+<Slide center>
+
+# Demo Presentation
+
+A slide system built into this site
+
+Press <kbd>→</kbd> to begin
+
+</Slide>
+
+<Slide>
+
+## Navigation
+
+- <kbd>←</kbd> / <kbd>→</kbd> — previous / next slide
+- <kbd>Space</kbd> — next (<kbd>Shift</kbd>+<kbd>Space</kbd> — previous)
+- <kbd>Home</kbd> / <kbd>End</kbd> — first / last slide
+- <kbd>f</kbd> — toggle fullscreen
+- Swipe left / right on touch devices
+- The URL hash tracks the current slide, so links and refreshes keep your place
+
+</Slide>
+
+<Slide>
+
+## Math works
+
+The Kontsevich formality map is a collection of graph-weighted operators and [link](https://github.com/Mal-Pat/website/tree/dev):
+
+$$
+U_n(\gamma_1, \dots, \gamma_n) = \sum_{\Gamma \in G_n} w_\Gamma \, B_\Gamma(\gamma_1, \dots, \gamma_n)
+$$
+
+Inline math like $e^{i\pi} + 1 = 0$ renders too.
+
+</Slide>
+
+<Slide>
+
+## Code works
+
+```lean title="Hello.lean"
+def hello : String := "Hello, slides!"
+
+theorem hello_nonempty : hello ≠ "" := by
+  decide
+```
+
+Syntax highlighting uses the site's existing Shiki setup.
+
+</Slide>
+
+<Slide center>
+
+# Thanks!
+
+[Back to the site](/)
+
+</Slide>

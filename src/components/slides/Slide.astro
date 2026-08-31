@@ -1,0 +1,17 @@
+---
+// One slide of a presentation deck. Used inside MDX files from the `slides`
+// collection; SlideLayout provides the styling and keyboard navigation.
+interface Props {
+  // Center content horizontally and vertically (e.g. for title slides)
+  center?: boolean
+  class?: string
+}
+
+const { center = false, class: className } = Astro.props
+---
+
+<section class:list={['slide', { 'slide-center': center }, className]} aria-hidden='true'>
+  <div class='slide-body prose'>
+    <slot />
+  </div>
+</section>

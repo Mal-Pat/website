@@ -57,4 +57,16 @@ const docs = defineCollection({
     })
 })
 
-export const collections = { blog }
+// Define slides collection (presentation decks, rendered at /slides/<id>)
+const slides = defineCollection({
+  loader: glob({ base: './src/content/slides', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      draft: z.boolean().default(false)
+    })
+})
+
+export const collections = { blog, slides }

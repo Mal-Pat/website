@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content'
+
+import SlideLayout from '@/layouts/SlideLayout.astro'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const decks = await getCollection('slides', ({ data }) => !data.draft)
+  return decks.map((deck) => ({
+    params: { id: deck.id },
+    props: { deck }
+  }))
+}
+
+type Props = {
+  deck: CollectionEntry<'slides'>
+}
+
+const { deck } = Astro.props
+const { Content } = await render(deck)
+---
+
+<SlideLayout meta={{ title: deck.data.title, description: deck.data.description }}>
+  <Content />
+</SlideLayout>

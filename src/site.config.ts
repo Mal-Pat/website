@@ -81,7 +81,9 @@ export const theme: ThemeUserConfig = {
   content: {
     /** External links configuration */
     externalLinks: {
-      content: ' ↗',
+      // Empty string disables the trailing marker. Must be set explicitly:
+      // omitting this key makes astro-pure's schema fall back to its ' ↗' default.
+      content: '',
       /** Properties for the external links element */
       properties: { style: 'user-select:none' }
     },
