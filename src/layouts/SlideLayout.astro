@@ -92,25 +92,31 @@ const {
         }
       }
 
-      .slide-body {
+      /* These are scoped under `.slide` on purpose. The body also carries the
+         theme's `prose` class, whose `:is(.prose)` rule sets font-size and
+         max-width at equal specificity — so a bare `.slide-body` selector only
+         wins on source order. Dev injects UnoCSS twice (once after the layout's
+         styles), so prose would win there and these would silently do nothing.
+         The extra class keeps slides sized correctly in dev and build alike. */
+      .slide .slide-body {
         width: 100%;
-        max-width: 52rem;
+        max-width: 68rem;
         max-height: 100%;
         overflow-y: auto;
-        font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.3rem);
+        font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
       }
-      .slide-body h1 {
+      .slide .slide-body h1 {
         font-size: 2.4em;
         line-height: 1.15;
       }
-      .slide-body h2 {
+      .slide .slide-body h2 {
         font-size: 1.7em;
         line-height: 1.2;
       }
       /* Hide heading anchor links inside slides: the theme keeps them in
          layout flow (opacity 0 + margin), which visually un-centers headings,
          and their heading-id hash would clash with the slide-position hash. */
-      .slide-body :is(h1, h2, h3, h4, h5, h6) > a.anchor {
+      .slide .slide-body :is(h1, h2, h3, h4, h5, h6) > a.anchor {
         display: none;
       }
       .slide-center {
