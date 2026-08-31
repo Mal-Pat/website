@@ -55,11 +55,16 @@ const {
       }
 
       .slide {
+        /* Column width shared by the slide body and its references footer. */
+        --slide-width: 68rem;
         position: absolute;
         inset: 0;
-        display: flex;
+        /* Two rows: the body takes all free space and centres within it, the
+           references footer sits in an auto row pinned to the bottom. Slides
+           with no footer get a zero-height second row, so they look unchanged. */
+        display: grid;
+        grid-template-rows: 1fr auto;
         align-items: center;
-        justify-content: center;
         padding: clamp(1.5rem, 5vw, 4rem);
         padding-top: calc(clamp(1.5rem, 5vw, 4rem) + env(safe-area-inset-top));
         padding-bottom: calc(clamp(1.5rem, 5vw, 4rem) + env(safe-area-inset-bottom));
@@ -100,7 +105,8 @@ const {
          The extra class keeps slides sized correctly in dev and build alike. */
       .slide .slide-body {
         width: 100%;
-        max-width: 68rem;
+        max-width: var(--slide-width);
+        margin-inline: auto;
         max-height: 100%;
         overflow-y: auto;
         font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
@@ -119,6 +125,50 @@ const {
       .slide .slide-body :is(h1, h2, h3, h4, h5, h6) > a.anchor {
         display: none;
       }
+      .slide .slide-body > :first-child { 
+        margin-top: 0; 
+      }
+      .slide .slide-body > :last-child { 
+        margin-bottom: 0; 
+      }
+      /* References footer. Kept outside `.slide-body` so it is not affected by
+         the prose styles or the body's scrolling, and always left-aligned even
+         on centred slides, where centred citations read poorly. */
+      .slide .slide-refs {
+        width: 100%;
+        max-width: var(--slide-width);
+        margin-inline: auto;
+        padding-top: 0.6rem;
+        border-top: 1px solid hsl(var(--border) / 1);
+        color: hsl(var(--muted-foreground) / 1);
+        font-size: clamp(0.75rem, 0.65rem + 0.35vw, 1.05rem);
+        line-height: 1.45;
+        text-align: start;
+      }
+      .slide .slide-refs :is(p, ul, ol) {
+        margin: 0;
+      }
+      /* The theme's CSS reset strips list markers, and prose only restores them
+         inside `.prose` — which the footer deliberately sits outside of. */
+      .slide .slide-refs :is(ul, ol) {
+        padding-inline-start: 1.4em;
+        list-style-position: outside;
+      }
+      .slide .slide-refs ol {
+        list-style-type: decimal;
+      }
+      .slide .slide-refs ul {
+        list-style-type: disc;
+      }
+      .slide .slide-refs li + li {
+        margin-top: 0.2em;
+      }
+      .slide .slide-refs a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
       .slide-center {
         text-align: center;
       }

@@ -8,10 +8,21 @@ interface Props {
 }
 
 const { center = false, class: className } = Astro.props
+
+// Optional `refs` slot renders as a footer pinned to the bottom of the slide:
+//   <Fragment slot='refs'>1. Author, *Title*, Year.</Fragment>
+const hasRefs = Astro.slots.has('refs')
 ---
 
 <section class:list={['slide', { 'slide-center': center }, className]} aria-hidden='true'>
   <div class='slide-body prose'>
     <slot />
   </div>
+  {
+    hasRefs && (
+      <footer class='slide-refs'>
+        <slot name='refs' />
+      </footer>
+    )
+  }
 </section>
