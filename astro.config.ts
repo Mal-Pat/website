@@ -26,6 +26,22 @@ import config from './src/site.config.ts'
 
 import cloudflare from '@astrojs/cloudflare';
 
+// astro-pure's entry points import `virtual:config`, a module that only exists
+// inside Astro's plugin pipeline. esbuild (Vite's dependency pre-bundler) cannot
+// resolve it, so these must be kept out of pre-bundling in EVERY environment --
+// the browser/client one included (see `vite.optimizeDeps` below), not just SSR.
+const astroPureEntrypoints = [
+  'astro-pure',
+  'astro-pure/utils',
+  'astro-pure/user',
+  'astro-pure/server',
+  'astro-pure/advanced',
+  'astro-pure/components/pages',
+  'astro-pure/components/basic',
+  'astro-pure/libs',
+  'astro-pure/types'
+]
+
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
@@ -139,25 +155,19 @@ export default defineConfig({
 
   // [Vite]
   vite: {
+    // Client environment: browser <script> bundles (node_modules/.vite/deps).
+    // Needed because some client scripts import from 'astro-pure/utils'.
+    optimizeDeps: {
+      exclude: astroPureEntrypoints
+    },
+    // SSR environment: the workerd dev server (node_modules/.vite/deps_ssr).
     ssr: {
       optimizeDeps: {
         // CommonJS-only packages must be pre-bundled to ESM for the
         // workerd-based dev server (@astrojs/cloudflare v13); otherwise
         // they crash with "module is not defined".
         include: ['boolbase', 'extend', 'node-html-parser'],
-        // astro-pure imports `virtual:config`, which the dep optimizer
-        // (esbuild) cannot resolve — keep it out of pre-bundling.
-        exclude: [
-          'astro-pure',
-          'astro-pure/utils',
-          'astro-pure/user',
-          'astro-pure/server',
-          'astro-pure/advanced',
-          'astro-pure/components/pages',
-          'astro-pure/components/basic',
-          'astro-pure/libs',
-          'astro-pure/types'
-        ]
+        exclude: astroPureEntrypoints
       }
     }
   },
