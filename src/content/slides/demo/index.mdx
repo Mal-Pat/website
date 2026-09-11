@@ -6,6 +6,8 @@ draft: false
 ---
 
 import Slide from '@/components/slides/Slide.astro'
+import SlideImage from '@/components/slides/SlideImage.astro'
+import ramanujan from './ramanujan.jpg'
 
 <Slide center>
 
@@ -62,6 +64,33 @@ theorem hello_nonempty : hello ≠ "" := by
 ```
 
 Syntax highlighting uses the site's existing Shiki setup.
+
+</Slide>
+
+<Slide>
+
+## Images: in the flow
+
+Use `align` to place a block image left, centre or right.
+
+<SlideImage src={ramanujan} alt='Srinivasa Ramanujan' align='center' width='16rem' caption='Centred with align="center".' />
+
+The text continues below the image.
+
+</Slide>
+
+<Slide>
+
+## Images: text wrapping
+
+<SlideImage src={ramanujan} alt='Srinivasa Ramanujan' wrap align='right' width='34%' caption='Floated right; text flows alongside.' />
+
+Add `wrap` and the image floats to one side while the slide text runs alongside
+it. Place the image *before* the text it should wrap, since a float only affects
+the content that follows it.
+
+Ramanujan's notebooks record thousands of identities without proof, many of
+which took decades to verify.
 
 </Slide>
 

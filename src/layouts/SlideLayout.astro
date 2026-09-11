@@ -131,6 +131,58 @@ const {
       .slide .slide-body > :last-child { 
         margin-bottom: 0; 
       }
+      /* Figures (SlideImage). Selectors are scoped tightly enough to beat the
+         prose rules on `figure`/`img`, which otherwise impose their own
+         margins and would fight the alignment below. */
+      .slide .slide-body .slide-figure {
+        margin-block: 1em;
+        max-width: 100%;
+      }
+      .slide .slide-body .slide-figure :is(img) {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        border-radius: 0.5rem;
+      }
+      .slide .slide-body .slide-figure figcaption {
+        margin-top: 0.4em;
+        font-size: 0.62em;
+        line-height: 1.4;
+        color: hsl(var(--muted-foreground) / 1);
+        text-align: start;
+      }
+
+      /* Block placement: shrink to the image, then push with auto margins.
+         An explicit `width` on the element overrides the fit-content below. */
+      .slide .slide-body .slide-figure:not(.is-wrap) {
+        width: fit-content;
+      }
+      .slide .slide-body .slide-figure:not(.is-wrap).align-left {
+        margin-inline: 0 auto;
+      }
+      .slide .slide-body .slide-figure:not(.is-wrap).align-center {
+        margin-inline: auto;
+      }
+      .slide .slide-body .slide-figure:not(.is-wrap).align-right {
+        margin-inline: auto 0;
+      }
+
+      /* Wrapped placement: float so following text flows alongside. The float
+         is contained by `.slide-body`, which is already a block formatting
+         context via `overflow-y: auto`. */
+      .slide .slide-body .slide-figure.is-wrap {
+        margin-block: 0.2em 0.8em;
+      }
+      .slide .slide-body .slide-figure.is-wrap.align-right {
+        float: right;
+        margin-inline-start: 1.5em;
+      }
+      .slide .slide-body .slide-figure.is-wrap.align-left {
+        float: left;
+        margin-inline-end: 1.5em;
+      }
+
       /* References footer. Kept outside `.slide-body` so it is not affected by
          the prose styles or the body's scrolling, and always left-aligned even
          on centred slides, where centred citations read poorly. */

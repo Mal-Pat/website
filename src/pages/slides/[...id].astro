@@ -5,6 +5,9 @@ import SlideLayout from '@/layouts/SlideLayout.astro'
 
 export const prerender = true
 
+// Rest param (like the blog route) so a deck can be either `my-deck.mdx` or a
+// folder `my-deck/index.mdx` holding its own images, at any nesting depth — a
+// plain `[id]` cannot represent the slashes in a nested collection id.
 export async function getStaticPaths() {
   const decks = await getCollection('slides', ({ data }) => !data.draft)
   return decks.map((deck) => ({

@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+
+// A figure for slides, in two placement modes:
+//   block  — sits in the text flow, aligned left / centre / right
+//   wrap   — floats to one side so the slide text runs alongside it
+interface Props {
+  // Imported image (`import pic from './pic.jpg'`) or a path/URL string
+  src: ImageMetadata | string
+  alt: string
+  // Side to align (block mode) or float to (wrap mode). 'center' has no
+  // meaning while wrapping, so it falls back to 'right' there.
+  align?: 'left' | 'center' | 'right'
+  // Let slide text flow around the image. The figure must come *before* the
+  // text it should wrap, since floats only affect following content.
+  wrap?: boolean
+  // Any CSS width, e.g. '40%' or '18rem'. Defaults to 45% when wrapping.
+  width?: string
+  caption?: string
+}
+
+const { src, alt, align = 'center', wrap = false, width, caption } = Astro.props
+
+const side = wrap && align === 'center' ? 'right' : align
+const figureWidth = width ?? (wrap ? '45%' : undefined)
+---
+
+<figure
+  class:list={['slide-figure', `align-${side}`, { 'is-wrap': wrap }]}
+  style={figureWidth ? `width:${figureWidth}` : undefined}
+>
+  {
+    typeof src === 'string' ? (
+      <img src={src} alt={alt} />
+    ) : (
+      <Image src={src} alt={alt} />
+    )
+  }
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

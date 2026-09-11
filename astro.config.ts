@@ -1,3 +1,8 @@
+import { statSync } from 'node:fs'
+import type { IncomingMessage, ServerResponse } from 'node:http'
+import { fileURLToPath } from 'node:url'
+import type { Plugin } from 'vite'
+
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
@@ -41,6 +46,54 @@ const astroPureEntrypoints = [
   'astro-pure/libs',
   'astro-pure/types'
 ]
+
+// In dev, /_image URLs are keyed only on the source path and dimensions — there
+// is no content hash — and the response carries `max-age=31536000, immutable`.
+// Worse, the Cloudflare adapter's workerd runtime stores these responses in the
+// Workers Cache API, which wrangler persists to `.wrangler/state/v3/cache` and
+// reuses across dev restarts. Replacing an image in place therefore keeps
+// serving the old picture until that directory is deleted by hand.
+//
+// Fix both halves, dev only (production URLs are content-hashed and untouched):
+//   1. stamp the source file's mtime into the URL the server sees, so editing
+//      or replacing an image yields a fresh cache key;
+//   2. send no-store, so the browser cannot hold onto its own stale copy.
+const devImageNoCache: Plugin = {
+  name: 'dev-image-no-cache',
+  apply: 'serve',
+  configureServer(server) {
+    server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
+      if (req.url?.startsWith('/_image')) {
+        const url = new URL(req.url, 'http://localhost')
+        const href = url.searchParams.get('href')
+        if (href) {
+          // href looks like `/@fs/C:/path/to/pic.jpg?origWidth=...` in dev, or
+          // `/src/...` for project-relative sources.
+          const rel = decodeURIComponent(href).split('?')[0]
+          const filePath = rel.startsWith('/@fs/')
+            ? rel.slice('/@fs/'.length)
+            : fileURLToPath(new URL('.' + rel, import.meta.url))
+          try {
+            url.searchParams.set('_mtime', String(statSync(filePath).mtimeMs))
+            const rewritten = url.pathname + url.search
+            req.url = rewritten
+            // connect records the pre-middleware URL and the adapter builds its
+            // Request from that, so rewriting `req.url` alone has no effect.
+            ;(req as IncomingMessage & { originalUrl?: string }).originalUrl = rewritten
+          } catch {
+            // not a file we can stat (remote image, odd path) — leave the URL as is
+          }
+        }
+        const setHeader = res.setHeader.bind(res)
+        res.setHeader = (name: string, value: number | string | readonly string[]) =>
+          String(name).toLowerCase() === 'cache-control'
+            ? setHeader('cache-control', 'no-store, must-revalidate')
+            : setHeader(name, value)
+      }
+      next()
+    })
+  }
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -155,6 +208,7 @@ export default defineConfig({
 
   // [Vite]
   vite: {
+    plugins: [devImageNoCache],
     // Client environment: browser <script> bundles (node_modules/.vite/deps).
     // Needed because some client scripts import from 'astro-pure/utils'.
     optimizeDeps: {
