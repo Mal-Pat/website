@@ -35,7 +35,27 @@ const {
     <a id='slides-home' href='/' title={`Back to ${config.title}`}>✕</a>
     <div id='slides-controls'>
       <button id='slides-prev' type='button' aria-label='Previous slide'>←</button>
-      <span id='slides-counter' aria-live='polite'></span>
+      <input
+        id='slides-scrubber'
+        type='range'
+        min='1'
+        step='1'
+        value='1'
+        aria-label='Go to slide'
+      />
+      <span id='slides-counter'>
+        <input
+          id='slides-number'
+          type='number'
+          min='1'
+          step='1'
+          value='1'
+          inputmode='numeric'
+          aria-label='Current slide'
+        />
+        <span id='slides-total' aria-hidden='true'></span>
+      </span>
+      <span id='slides-announcement' class='sr-only' aria-live='polite'></span>
       <button id='slides-next' type='button' aria-label='Next slide'>→</button>
     </div>
 
@@ -283,23 +303,63 @@ const {
         opacity: 0.35;
         cursor: default;
       }
+      #slides-scrubber {
+        width: clamp(6rem, 18vw, 14rem);
+        margin-inline: 0.35rem;
+        cursor: pointer;
+        accent-color: hsl(var(--primary) / 1);
+      }
       #slides-counter {
-        min-width: 3.5rem;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        min-width: 5rem;
         font-variant-numeric: tabular-nums;
         user-select: none;
+      }
+      #slides-number {
+        width: 3.25em;
+        border: 1px solid transparent;
+        border-radius: 0.35rem;
+        outline: none;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        font-variant-numeric: tabular-nums;
+        text-align: end;
+        appearance: textfield;
+      }
+      #slides-number::-webkit-inner-spin-button,
+      #slides-number::-webkit-outer-spin-button {
+        margin: 0;
+        appearance: none;
+      }
+      #slides-number:hover {
+        border-color: hsl(var(--border) / 1);
+      }
+      #slides-number:focus-visible {
+        border-color: hsl(var(--primary) / 1);
+        outline: 2px solid hsl(var(--primary) / 0.3);
+        outline-offset: 1px;
+        color: hsl(var(--foreground) / 1);
       }
     </style>
 
     <script>
       const viewport = document.getElementById('slides-viewport')!
       const slides = Array.from(viewport.querySelectorAll<HTMLElement>('.slide'))
-      const counter = document.getElementById('slides-counter')!
       const progress = document.getElementById('slides-progress')!
       const prevBtn = document.getElementById('slides-prev') as HTMLButtonElement
       const nextBtn = document.getElementById('slides-next') as HTMLButtonElement
+      const scrubber = document.getElementById('slides-scrubber') as HTMLInputElement
+      const slideNumber = document.getElementById('slides-number') as HTMLInputElement
+      const slideTotal = document.getElementById('slides-total')!
+      const slideAnnouncement = document.getElementById('slides-announcement')!
 
       let current = 0
+
+      scrubber.max = String(slides.length)
+      slideNumber.max = String(slides.length)
+      slideTotal.textContent = ` / ${slides.length}`
 
       function setSlidePlayersActive(slide: HTMLElement, active: boolean) {
         const players = slide.querySelectorAll<HTMLIFrameElement>('iframe[data-slide-player-src]')
@@ -327,7 +387,11 @@ const {
           slide.setAttribute('aria-hidden', String(!active))
           setSlidePlayersActive(slide, active)
         }
-        counter.textContent = `${current + 1} / ${slides.length}`
+        const displayNumber = String(current + 1)
+        scrubber.value = displayNumber
+        scrubber.setAttribute('aria-valuetext', `Slide ${displayNumber} of ${slides.length}`)
+        slideNumber.value = displayNumber
+        slideAnnouncement.textContent = `Slide ${displayNumber} of ${slides.length}`
         progress.style.width = `${((current + 1) / slides.length) * 100}%`
         prevBtn.disabled = current === 0
         nextBtn.disabled = current === slides.length - 1
@@ -379,14 +443,37 @@ const {
 
       prevBtn.addEventListener('click', () => goTo(current - 1))
       nextBtn.addEventListener('click', () => goTo(current + 1))
+      scrubber.addEventListener('input', () => goTo(Number(scrubber.value) - 1))
+
+      function commitSlideNumber() {
+        const requested = Number(slideNumber.value)
+        if (Number.isInteger(requested)) goTo(requested - 1)
+        else slideNumber.value = String(current + 1)
+      }
+
+      slideNumber.addEventListener('change', commitSlideNumber)
+      slideNumber.addEventListener('focus', () => slideNumber.select())
+      slideNumber.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          commitSlideNumber()
+          slideNumber.blur()
+        } else if (e.key === 'Escape') {
+          slideNumber.value = String(current + 1)
+          slideNumber.blur()
+        }
+      })
       window.addEventListener('hashchange', () => goTo(slideFromHash(), false))
 
       // Horizontal swipe navigation for touch devices
       let touchX = 0
       let touchY = 0
+      let trackingSwipe = false
       document.addEventListener(
         'touchstart',
         (e) => {
+          const target = e.target as Element | null
+          trackingSwipe = !target?.closest('#slides-controls')
+          if (!trackingSwipe) return
           touchX = e.changedTouches[0].clientX
           touchY = e.changedTouches[0].clientY
         },
@@ -395,6 +482,8 @@ const {
       document.addEventListener(
         'touchend',
         (e) => {
+          if (!trackingSwipe) return
+          trackingSwipe = false
           const dx = e.changedTouches[0].clientX - touchX
           const dy = e.changedTouches[0].clientY - touchY
           if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
