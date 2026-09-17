@@ -301,12 +301,31 @@ const {
 
       let current = 0
 
+      function setSlidePlayersActive(slide: HTMLElement, active: boolean) {
+        const players = slide.querySelectorAll<HTMLIFrameElement>('iframe[data-slide-player-src]')
+        for (const player of players) {
+          const playerSrc = player.dataset.slidePlayerSrc
+          if (!playerSrc) continue
+
+          if (active) {
+            if (player.getAttribute('src') !== playerSrc) player.src = playerSrc
+          } else if (player.getAttribute('src') !== 'about:blank') {
+            // Unloading is more reliable than trying to message a provider's
+            // player API, and guarantees that hidden slides cannot keep
+            // playing audio. Returning to the slide restarts at its start time.
+            player.src = 'about:blank'
+          }
+        }
+      }
+
       function goTo(index: number, updateHash = true) {
         if (slides.length === 0) return
         current = Math.max(0, Math.min(slides.length - 1, index))
         for (const [i, slide] of slides.entries()) {
-          slide.classList.toggle('active', i === current)
-          slide.setAttribute('aria-hidden', String(i !== current))
+          const active = i === current
+          slide.classList.toggle('active', active)
+          slide.setAttribute('aria-hidden', String(!active))
+          setSlidePlayersActive(slide, active)
         }
         counter.textContent = `${current + 1} / ${slides.length}`
         progress.style.width = `${((current + 1) / slides.length) * 100}%`

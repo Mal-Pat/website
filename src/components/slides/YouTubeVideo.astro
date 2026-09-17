@@ -1,0 +1,55 @@
+---
+// Responsive YouTube player for presentation slides. SlideLayout unloads the
+// iframe while its slide is hidden so playback cannot continue off-screen.
+interface Props {
+  videoId: string
+  title: string
+  start?: number
+  end?: number
+  width?: string
+}
+
+const { videoId, title, start = 0, end, width = '56rem' } = Astro.props
+
+const params = new URLSearchParams({ playsinline: '1' })
+const startSeconds = Math.floor(start)
+
+if (startSeconds > 0) params.set('start', String(startSeconds))
+
+if (end !== undefined) {
+  const endSeconds = Math.floor(end)
+  if (endSeconds <= startSeconds) {
+    throw new Error('YouTubeVideo end time must be greater than its start time')
+  }
+  params.set('end', String(endSeconds))
+}
+
+const playerSrc = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?${params}`
+---
+
+<figure class='slide-video' style={`--slide-video-width:${width}`}>
+  <iframe
+    src={playerSrc}
+    data-slide-player-src={playerSrc}
+    {title}
+    loading='lazy'
+    referrerpolicy='strict-origin-when-cross-origin'
+    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    allowfullscreen></iframe>
+</figure>
+
+<style>
+  .slide-video {
+    width: min(100%, var(--slide-video-width));
+    margin: 1em auto 0;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 0.5rem;
+    background: #000;
+  }
+</style>
