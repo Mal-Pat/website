@@ -1,6 +1,6 @@
 ---
-title: 'AI for Math and Lean'
-description: 'A demo deck showing slide navigation, math and code rendering.'
+title: 'AI, Lean and the Future of Mathematics'
+description: 'The history of proof assistants, the present state of AI-assisted math, and the future of pure mathematics'
 publishDate: 2026-08-31
 draft: false
 ---
@@ -19,6 +19,34 @@ import jacobianx from './images/jacobianx.jpg'
 import openai10 from './images/openai10.jpg'
 import voevodsky from './images/voevodsky.jpg'
 import fregebook from './images/fregebook.jpg'
+import russell from './images/russell.jpg'
+import russellbook from './images/russellbook.jpg'
+import stt from './images/stt.jpg'
+import church from './images/church.jpg'
+import stlambda from './images/stlambda.jpg'
+import gentzen from './images/gentzen.jpg'
+import automath from './images/automath.jpg'
+import lambda from './images/lambda.jpg'
+import univalent from './images/univalent.jpg'
+import leo from './images/leo.jpg'
+import kevin from './images/kevin.jpg'
+import perfectoid from './images/perfectoid.jpg'
+import scholze from './images/scholze.jpg'
+import tao from './images/tao.jpg'
+import flt from './images/flt.jpg'
+import transformer from './images/transformer.jpg'
+import deepblue from './images/deepblue.jpg'
+import taoerdos1 from './images/taoerdos1.jpg'
+import taoerdos2 from './images/taoerdos2.jpg'
+import zetazeros from './images/zetazeros.jpg'
+import fermat from './images/fermat.jpg'
+import navierstokes from './images/navierstokes.jpg'
+import go from './images/go.jpg'
+
+
+
+
+
 
 <Slide center>
 
@@ -29,6 +57,7 @@ Malhar A. Patel
 Press <kbd>→</kbd> to begin
 
 </Slide>
+
 
 
 
@@ -50,21 +79,6 @@ Press <kbd>→</kbd> to begin
 
 
 
-<Slide>
-
-## Contents
-
-1. The Current State of AI for Math
-2. The Logical Structure of Math
-3. Theorem Provers & Lean
-4. Autoformalization and AI
-5. AI for Math
-
-</Slide>
-
-
-
-
 
 <Slide center>
 
@@ -73,6 +87,7 @@ Press <kbd>→</kbd> to begin
 Pre-2020 Computer Assisted Mathematics
 
 </Slide>
+
 
 
 
@@ -101,6 +116,7 @@ Pre-2020 Computer Assisted Mathematics
 
 
 
+
 <Slide>
 
 ## Logic Theorist
@@ -120,6 +136,7 @@ Pre-2020 Computer Assisted Mathematics
 </Fragment>
 
 </Slide>
+
 
 
 
@@ -150,6 +167,7 @@ Pre-2020 Computer Assisted Mathematics
 
 
 
+
 <Slide>
 
 ## Four Color Theorem
@@ -173,6 +191,22 @@ Pre-2020 Computer Assisted Mathematics
 </Fragment>
 
 </Slide>
+
+
+
+
+
+
+<Slide>
+
+## Four Color Theorem
+
+> Most mathematicians, even as late as the 1970s, had no real interest in learning about computers. It was almost as if those of us who enjoyed playing with computers were doing something non-mathematical or suspect.
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Kenneth Appel</cite>
+
+</Slide>
+
 
 
 
@@ -209,6 +243,7 @@ Pre-2020 Computer Assisted Mathematics
 
 
 
+
 <Slide>
 
 ## Understanding the work
@@ -224,6 +259,7 @@ In most of the previous cases, hopefully
 All these are typically described in the papers.
 
 </Slide>
+
 
 
 
@@ -247,6 +283,7 @@ All these are typically described in the papers.
 
 
 
+
 <Slide center>
 
 # The Present Days
@@ -259,6 +296,45 @@ Post-2020 Computer Assisted Mathematics
 
 
 
+
+<Slide>
+
+## Formalizing Fermat's Last Theorem
+
+<SlideImage src={fermat} alt='fermat' align='center' width='50rem' caption='' />
+
+<Fragment slot='refs'>
+
+1. https://www.anthropic.com/research/formalizing-fermats-last-theorem
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Navier-Stokes Millenium Prize Problem
+
+<SlideImage src={navierstokes} alt='navierstokes' align='center' width='50rem' caption='' />
+
+<Fragment slot='refs'>
+
+1. https://openai.com/index/navier-stokes-solution/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
 <Slide>
 
 ## Computer-Assisted Math Now
@@ -266,7 +342,7 @@ Post-2020 Computer Assisted Mathematics
 <SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
 
 - **AI (Frontier and Specialized Models)**
-- **Interactive Theorem Provers**
+- **Proof Assistants**
 - Arithmetic Computations
 - Computer Algebra Systems
 - SAT/SMT/FOL/HOL Solvers
@@ -284,19 +360,950 @@ Post-2020 Computer Assisted Mathematics
 
 
 
+
 <Slide>
 
-## Meme on "AI can't do addition"
+## A common misunderstanding
 
-- hah
+Due to Lean being synonymous with every recent AI-generated proof, many assume that Lean uses some form of AI to verify the proofs.
+
+This is incorrect.
+
+**Proof Assistants do NOT use AI to verify mathematics.**
+
+They typically rely on a small trusted deterministic kernel written by humans. You can trust the proof assistant if you can trust the kernel. 
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# The Origins
+
+A history of type theory and proof assistants
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Foundations of Math
+
+<SlideImage src={fregebook} alt='fregebook' wrap align='right' width='30%' caption="Frege's Begriffsschrift" />
+
+The late 19th century:
+
+- Cantor had created set theory
+- Peano was formalizing arithmetic
+- Frege was trying to derive arithemtic from logic
+- Hilbert was pushing the axiomatic method
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Russell's Paradox
+
+<div class="theorem" style="border: 1px solid rgba(128, 128, 128, 0.4); border-radius: 20px; padding: 0px; margin: 15px 0; text-align: center;"> 
+  If $R = \{x : x \notin x\}$, then does $R \in R$ ?
+</div>
+
+<SlideImage src={russell} alt='russell' wrap align='right' width='20%' caption='' />
+
+Russell found this paradox in Frege's work.
+
+Logic allowed objects to apply to themselves too freely.
+
+The problem, according to Russell, was **unrestricted self-application**.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Russell's Theory of Types
+
+<SlideImage src={russellbook} alt='russellbook' wrap align='right' width='30%' caption='' />
+
+Russell introduced type theory to restrict the kinds of applications possible in logic.
+
+His system of the **ramified theory of types** resolved the paradoxes.
+
+The problem was that it made ordinary mathematics painful and awkward to do.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Simple Type Theory
+
+<SlideImage src={stt} alt='stt' wrap align='right' width='40%' caption='' />
+
+Frank Ramsey argued that not all of Russell's ramified type theory was necessary for ordinary math.
+
+Ramsey and Chwistek simplified a lot of Russell's type theory to get **simple type theory**.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Church's Lambda Calculus
+
+<SlideImage src={church} alt='church' wrap align='right' width='30%' caption='' />
+
+The **untyped lambda calculus** had very simple syntax: 
+
+- variables ($x$)
+- function abstraction ($\lambda x.t$) 
+- function application ($t u$)
+
+However, the Kleene-Rosser Paradox showed that the lambda calculus was inconsistent, since it allowed unrestricted self-reference (like $xx$).
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Simply Typed Lambda Calculus
+
+<SlideImage src={stlambda} alt='stlambda' wrap align='right' width='30%' caption='' />
+
+Church's 1940 paper “A Formulation of the Simple Theory of Types” combined lambda calculus with simple type theory.
+
+Now, $(xx)$ wasn't possible, since it would require $(x : A \to B)$ and $(x : A)$ at the same time.
+
+He also showed that the simply typed lambda calculus was **equivalent** to higher-order logic.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Gentzen's work on proof theory
+
+<SlideImage src={gentzen} alt='gentzen' wrap align='right' width='30%' caption='' />
+
+Gentzen introduced **natural deduction** and **sequent calculus**.
+
+If you have separately proven $A$ and $A \to B$, then you can infer $B$.
+
+This aligned much more with how mathematicians actually did math, compared to the axiomatic Hilbert-style systems.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Curry - Howard - de Bruijn Correspondence
+
+|**Logic**|**Program**|
+|:---:|:---:|
+|Propositions|Types|
+|$A \land B$|$A \times B$|
+|$A \lor B$|$A + B$|
+|$A \to B$|$A \to B$|
+|$\forall x:A,\; B(x)$|$(x : A) \to B(x)$|
+|$\exists x:A,\; B(x)$|$(x : A) \times B(x)$|
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Brouwer-Heyting-Kolmogorov Interpretation
+
+The Curry-Howard correspondence aligns itself with intuitionistic logic, making proofs constructive.
+
+They interpret:
+
+- $A \lor B$ as a disjunction of either a proof of $A$ or a proof of $B$
+- $\exists x, P(x)$ as a pair $(x,P(x))$, which involves constructing such an $x$
+
+Classical mathematics involves non-constructive elements such as the **Law of the Excluded Middle** $(A \lor \neg A)$ and the **Axiom of Choice**.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Automath
+
+<SlideImage src={automath} alt='automath' wrap align='right' width='30%' caption='' />
+
+In 1967, Nicolaas de Bruijn started Automath.
+
+- Proofs were explicit objects
+- Proof checking was type checking
+- Definitions would be unfolded
+- The system rests on a small trusted kernel
+
+Jutting translated Landau's Foundations of Analysis into Automath and checked its correctness
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Tactics
+
+The LCF (Logic of Computable Functions) Theorem Prover was developed by Robin Milner based on Dana Scott's ideas.
+
+Writing proof terms directly was difficult, so it introduced **tactics** to make this easier.
+
+This is safe because errors at the tactic stage do not endanger soundness, since every proof term still has to pass through the trusted kernel.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## More developments in Type Theory
+
+- Per Martin-Löf made several contributions, including introducing **dependent types** in his **intuitionistic type theory** to create a constructive foundation of math and creating an infinite universe of types to avoid Girard's paradox (when `Type : Type`)
+- Thierry Coquand and Gérard Huet developed the **Calculus of Inductive Constructions**, which is used in proof assistants like Rocq and Lean
+- Classical (non-constructive) math can be checked in certain proof assistants by adding the Axiom of Choice (LEM can be proven from Choice via Diaconescu's Theorem)
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Barendregt's Lambda Cube
+
+<SlideImage src={lambda} alt='lambda' align='center' width='60%' caption='' />
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## More Proof Assistants
+
+Several proof assistants started being developed:
+
+- HOL Family
+- Mizar
+- Isabelle
+- Idris
+- Agda
+- Rocq
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# Voevodsky's Experince
+
+Played a major role in the adoption of proof assistants by mathematicians
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Voevodsky's Experience
+
+<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
+
+In 1990, Voevodsky and Kapranov published “∞-groupoids as a model for a homotopy category”.
+
+It claimed to provide a formulation and proof of Grothendieck's idea of connecting ∞-groupoids and homotopy types.
+
+They decided to apply these ideas to develop motivic cohomology
 
 <Fragment slot='refs'>
 
-- Template
+1. Kapranov, M. M., & Voevodsky, V. A. (1990). ∞-groupoids as a model for a homotopy category. Russian Mathematical Surveys, 45(5), 239–240.
 
 </Fragment>
 
 </Slide>
+
+
+
+
+
+
+<Slide>
+
+## Incident 1
+
+Previously in 1986, Spencer Bloch had published “Algebraic Cycles and Higher K-theory”.
+
+It was groundbreaking for motivic cohomology.
+
+Unfortunately, Andrei Suslin found a mistake in Lemma 1.1, and the proof could not be salvaged.
+
+<Fragment slot='refs'>
+
+1. https://www.ias.edu/ideas/2014/voevodsky-origins
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Incident 2
+
+In 1993, Voevodsky, Suslin and Friedlander took a new approach in “Cohomological Theory of Presheaves with Transfers” .
+
+While giving lectures at the IAS in 1999, Voevodsky and Deligne discovered a mistake in a key lemma in the paper.
+
+<Fragment slot='refs'>
+
+1. https://www.ias.edu/ideas/2014/voevodsky-origins
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Voevodsky's Experience
+
+> This story got me scared. Starting from 1993, multiple groups of mathematicians studied my paper at seminars and used it in their work and none of them noticed the mistake. ... A technical argument by a trusted author, which is hard to check and looks similar to arguments known to be correct, is hardly ever checked in detail.
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Incident 3
+
+In 1998, Carlos Simpson published “Homotopy types of strict 3-groupoids”.
+
+It contradicted the main result of Voevodsky and Kapranov's “∞-groupoids as a model for a homotopy category”.
+
+Voevodsky could not find the mistake in the proof till 2013.
+
+<Fragment slot='refs'>
+
+1. https://www.ias.edu/ideas/2014/voevodsky-origins
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Voevodsky's Experience
+
+> It soon became clear that the only real long-term solution to the problems that I encountered is to start using computers in the verification of mathematical reasoning. Among mathematicians computer proof verification was almost a forbidden subject. A conversation ... would invariably drift to the Goedel Incompleteness Theorem (which has nothing to do with the actual problem).
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Univalent Foundations of Math
+
+<SlideImage src={univalent} alt='univalent' wrap align='right' width='30%' caption='' />
+
+Voevodsky and other mathematicians started working on Homotopy Type Theory and Univalent Foundations of Math.
+
+Types become spaces, terms become points, equalities become paths, and equalities of equalities become homotopies between paths.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Voevodsky's Experience
+
+> I now do my mathematics with a proof assistant and **do not have to worry** all the time about mistakes in my arguments or about how to convince others that my arguments are correct. Sooner or later **computer proof assistants will become the norm**, but the longer this process takes the more misery associated with mistakes and with unnecessary self-verification the practitioners of the field will have to endure.
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# Lean
+
+A new proof assistant enters the scene
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Lean
+
+<SlideImage src={leo} alt='leo' wrap align='right' width='30%' caption='Leonardo de Moura' />
+
+Lean was launched by Leonardo de Moura at Microsoft Research in 2013.
+
+De Moura had plenty of experience in automated reasoning, SMT solving and formal verification. He had previously developed the Z3 solver.
+
+The goal with Lean was to combine dependent type theory with automation and great software engineering.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Schemes in Lean
+
+<SlideImage src={kevin} alt='kevin' wrap align='right' width='30%' caption='Kevin Buzzard' />
+
+Schemes are central to algebraic geometry, and notoriously hard to formalize, requiring topology, commutative algebra, sheaves, locally ringed spaces, and a lot more.
+
+The Xena Project at Imperial led by Kevin Buzzard started the **Schemes in Lean** project in 2017, and finished it within a year.
+
+<Fragment slot='refs'>
+
+1. Buzzard, K., Hughes, C., Lau, K., Livingston, A., Mir, R. F., & Morrison, S. (2022). Schemes in lean. Experimental Mathematics, 31(2), 355-363. https://arxiv.org/abs/2101.02602
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Perfectoid Spaces in Lean
+
+<SlideImage src={perfectoid} alt='perfectoid' wrap align='right' width='40%' caption='' />
+
+Peter Scholze had introduced **perfectoid spaces** in his PhD thesis in 2011, and it was a trending topic in arithmetic geometry at the time.
+
+Kevin Buzzard, Johan Commelin and Patrick Massot formalized them in Lean, contributing lots of foundational material to Mathlib.
+
+<Fragment slot='refs'>
+
+1. https://leanprover-community.github.io/lean-perfectoid-spaces/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Liquid Tensor Experiment
+
+<SlideImage src={scholze} alt='scholze' wrap align='right' width='30%' caption='Peter Scholze' />
+
+In 2020, Peter Scholze challenged the Lean community to formalize his and Dustin Clausen's work on **condensed mathematics**.
+
+A key technical result concerning liquid vector spaces was so complex that Peter Scholze wasn't 100% certain about it.
+
+Within a year and a half, the main theorem on liquid tensor spaces was formalized and verified in Lean.
+
+<Fragment slot='refs'>
+
+1. https://leanprover-community.github.io/blog/posts/lte-final/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Scholze's Experience
+
+> Half a year ago, I did not understand why the argument worked, and why we had to move from the reals to a certain ring of arithmetic Laurent series. But during the formalization, a significant amount of convex geometry had to be formalized (in order to prove a well-known lemma known as Gordan’s lemma), and this made me realize [why it worked].
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Peter Scholze</cite>
+
+<Fragment slot='refs'>
+
+1. https://xenaproject.wordpress.com/2021/06/05/half-a-year-of-the-liquid-tensor-experiment-amazing-developments/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Scholze's Experience
+
+> I learnt that it can now be possible to take a research paper and just start to explain lemma after lemma to a proof assistant, until you’ve formalized it all! I think this is a landmark achievement.
+>
+> <cite style={{display: 'block', textAlign: 'right'}}>— Peter Scholze</cite>
+
+<Fragment slot='refs'>
+
+1. https://xenaproject.wordpress.com/2021/06/05/half-a-year-of-the-liquid-tensor-experiment-amazing-developments/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Polynomial Freiman–Ruzsa Conjecture
+
+In 2023, a proof of the PFR conejcture over $\mathbb{F}_2$ was published by Gowers, Green, Manners and Tao.
+
+Just within 3 weeks, the Lean community formalized the new paper in Lean and verified the result.
+
+<Fragment slot='refs'>
+
+1. Gowers, W. T., Green, B., Manners, F., & Tao, T. (2023). On a conjecture of Marton. arXiv preprint arXiv:2311.05762. https://arxiv.org/abs/2311.05762
+2. https://teorth.github.io/pfr//
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Equational Theories Project
+
+<SlideImage src={tao} alt='tao' wrap align='right' width='30%' caption='Terence Tao' />
+
+Tao launched ETP in 2024, with the goal of classifying all implications between magma equations upto 4 operations (4694 equations resulting in 22,028,942 implications).
+
+This was one of the largest community-driven Lean projects. Within just a few months, with a combination of human reasoning and automated solvers, all implications were resolved and verified in Lean.
+
+<Fragment slot='refs'>
+
+1. https://teorth.github.io/equational_theories/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Formalizing Fermat's Last Theorem
+
+<SlideImage src={flt} alt='flt' wrap align='right' width='50%' caption='' />
+
+In 2024, Buzzard launched an ambitious project to formalize Fermat's Last Theorem in Lean, with a $1 million dollar grant funding it.
+
+The project is still ongoing.
+
+<Fragment slot='refs'>
+
+1. https://imperialcollegelondon.github.io/FLT/
+- Image. https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Formalization was still hard
+
+Despite the strengths of Lean, formalizing a math paper was still hard.
+
+It required mathematicians to study a good amount of Lean. Mathlib contained very little graduate-level math, so most formalizations would require the authors to develop the foundations first. Moreover, proofs in Lean had to be more explicit than proofs in natural language (the de Bruijn factor in Lean ranges around 3 to 5).
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# Autoformalization
+
+AI starts formalizing mathematics
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## AI as a formalization tool
+
+<SlideImage src={transformer} alt='transformer' wrap align='right' width='30%' caption='Transformer' />
+
+With the rise of LLMs, a lot of researchers realized that they could help translate math in natural language to formal Lean code.
+
+After all, the initial use of a transformer was for translating between languages.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Autoformalization
+
+- **Benchmarks:** miniF2F, ProofNet and NuminaMath-LEAN
+- **Papers:** *"A Promising Path Towards Autoformalization and General Artificial Intelligence"* (Szegedy, 2020), *"Autoformalization with Large Language Models"* (Wu et al., NeurIPS 2022), *"Draft, Sketch and Prove"*
+- **Autoformalization Agents:** LeanDojo, Deepseek-Prover, AlphaProof, Aristotle, Gauss and AxiomProver
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Strong Prime Number Theorem
+
+Tao and Kontorovich set out to formalize the strong PNT, but were taking some time to get through complex analysis.
+
+Gauss, an autoformalization agent developed by Math Inc., formalized the theorem in 3 weeks with around 1000 theorems and definitions spanning 25,000 lines of Lean code.
+
+<Fragment slot='refs'>
+
+1. https://www.math.inc/gauss
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Sphere Packing in 8 & 24-dim
+
+<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
+
+In 2024, Maryna Viazovska and Siddhartha Hariharan launched a project to formalize Viazovska's proof of Sphere Packing in 8 & 24-dimensions.
+
+Math Inc. started working with them in 2025, and in just 5 days, Gauss autoformalized all remaining results and completed the proof in Lean. This was the first time a Fields Medal-winning result was autoformalized by an AI agent, and the largest, at around 200,000 lines.
+
+<Fragment slot='refs'>
+
+1. https://www.math.inc/sphere-packing
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## AI helps Proof Assistants
+
+Before AI, formalization was slow and tiring work.
+
+Now that AI was getting better, it was going to make formalization cheap and accessible. 
+
+Mathematicians would publish papers as usual, and AI agents would autoformalize them into Lean. They didn't have to spend a lot of time learning Lean, and could focus on their research. No one would worry about mistakes anymore, since Lean would verify the results. Math research could be done much faster now.
+
+What a time to be alive!
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Proof Assistants help AI
+
+Before 2026, the idea that LLMs could do research level math was laughable. Math proofs needed the highest level of rigor, and most people were used to seeing LLMs hallucinate at simple tasks.
+
+However, if AI agents could get good enough at formalization, then they could formalize their arguments and get it verified by a proof assistant. The proof assistant acts as an external oracle that can catch all mistakes made by AI.
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# AlphaGo
+
+The AI that beat humans at the game of Go
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Chess and Go
+
+<SlideImage src={deepblue} alt='deepblue' wrap align='right' width='40%' caption='Garry Kasparov vs Deep Blue, 1997' />
+
+In 1997, IBM's Deep Blue defeated Garry Kasparov at chess. 
+
+It achieved this using traditional AI search algorithms combined with raw calculation (200 million positions per second).
+
+However, even by the 2010s, computers were nowhere close to strong amateur human Go players. The search space in Go was simply too large.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## The game of Go
+
+<SlideImage src={go} alt='go' wrap align='right' width='40%' caption='The traditional 19x19 Go board' />
+
+Go was considered to be the holy grail of AI. Almost all Go professionals and AI experts believed that a computer beating a human pro at Go was several decades away.
+
+In 2014, Google DeepMind started the AlphaGo research project to try using neural networks and deep learning to tackle Go.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## The ideas behind AlphaGo
+
+A game of Go can be **verified on a computer**, without any human involvement (by verifying whether each move is legal or not).
+
+This means a computer program can **generate its own valid Go games** via self-play and learn from it.
+
+AlphaGo used MCTS with a policy and value network, and learnt from both human games and self-play.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Videos
+
+- https://youtu.be/WXuK6gekU1Y?t=1640
+- https://youtu.be/WXuK6gekU1Y?t=2391
+
+</Slide>
+
+
+
+
+
+
+
+<Slide>
+
+## How does this relate to Math?
+
+There is a strong comparison to be made here:
+
+- Math has an objective verifier (proof assistants like Lean)
+- Proof assistants can be used to generate unlimited valid synthetic math data for training AIs 
+- Proof search can be formulated as sequential decision making with a well-defined goal
+- Proof assistants can catch any mistake or hallucination made by an AI
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## How does this relate to Math?
+
+However, there are a lot of problems with this comparison as well:
+
+- Math, as a whole, does not have a well-defined objective
+- The action space in math is much larger than that in games like Go
+- The feedback in math is much sparser than that in games like Go
+- The world of math is infinitely large
+- Proof assistants can verify proofs but not meanings (AI could mis-translate a problem and produce a verified proof for a different statement)
+
+</Slide>
+
+
+
+
+
+
+<Slide center>
+
+# AI does Math
+
+AI begins to solve research level math problems
+
+</Slide>
+
+
 
 
 
@@ -326,6 +1333,7 @@ Post-2020 Computer Assisted Mathematics
 
 
 
+
 <Slide>
 
 ## IMO 2025
@@ -346,6 +1354,72 @@ Silver-medal performance by
 
 
 
+
+<Slide>
+
+## Some Erdős problems fall
+
+Thomas Bloom's https://erdosproblems.com kept a collection of all Erdős problems.
+In 2025, AI agents started targetting them.
+
+GPT-5 solved around 10 open Erdős problems. After some digging around, it was found that these problems were resolved mainly by finding forgotten literature around those problems.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+<SlideImage src={taoerdos1} alt='taoerdos1' align='center' width='90%' caption='' />
+
+<Fragment slot='refs'>
+
+1. https://mathstodon.xyz/@tao/115788262274999408
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Erdős Problem 728
+
+In January 2026, GPT-5.2 and Harmonic's Aristotle were used to autonomously solve Erdős Problem 728.
+
+This was the first example of a new proof for an Erdős Problem which didn't already exist in the literature.
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+<SlideImage src={taoerdos2} alt='taoerdos2' align='center' width='90%' caption='' />
+
+<Fragment slot='refs'>
+
+1. https://mathstodon.xyz/@tao/115855840223258103
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
 <Slide>
 
 ## Erdős's Unit Distance Conjecture
@@ -354,8 +1428,9 @@ Silver-medal performance by
   In a set of $n$ points, what could be the maximum number of pairs of points that are at unit distance from each other?
 </div>
 
-- Erdős conjectured that for all $\epsilon > 0, \ g(n) = \mathcal{O}(n^{1+\epsilon})$
-- In 2026, a general-purpose **OpenAI** model constructed a counter-example using algebraic number theory 
+Erdős conjectured that for all $\epsilon > 0, \ g(n) = \mathcal{O}(n^{1+\epsilon})$
+
+In 2026, a general-purpose **OpenAI** model constructed a counter-example using algebraic number theory .
 
 <Fragment slot='refs'>
 
@@ -364,6 +1439,7 @@ Silver-medal performance by
 </Fragment>
 
 </Slide>
+
 
 
 
@@ -380,6 +1456,7 @@ Silver-medal performance by
 </Fragment>
 
 </Slide>
+
 
 
 
@@ -403,6 +1480,7 @@ Silver-medal performance by
 
 
 
+
 <Slide>
 
 ## Jacobian Conjecture
@@ -414,6 +1492,7 @@ Silver-medal performance by
 <SlideImage src={jacobianx} alt='jacobianx' align='center' width='45rem' caption='' />
 
 </Slide>
+
 
 
 
@@ -443,17 +1522,16 @@ Silver-medal performance by
 
 
 
+
 <Slide>
 
-## Template
+## Proportion of Riemann Zeta Zeros on Critical Line
 
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
+<SlideImage src={zetazeros} alt='zetazeros' align='center' width='30rem' caption='' />
 
 <Fragment slot='refs'>
 
-- Template.
+1. https://www.anthropic.com/research/riemann-zeta
 
 </Fragment>
 
@@ -463,22 +1541,20 @@ Silver-medal performance by
 
 
 
+
 <Slide>
 
-## Foundations of Math
+## Bounded Prime Gaps
 
-<SlideImage src={fregebook} alt='fregebook' wrap align='right' width='30%' caption="Frege's Begriffsschrift" />
+Till 2014, the upper bound for bounded prime gaps was at 246 (established by a Polymath project).
 
-The late 19th century:
-
-- Cantor had created set theory
-- Peano was formalizing arithmetic
-- Frege was trying to derive arithemtic from logic
-- Hilbert was pushing the axiomatic method
+In 2026, within a span of 3 days, it was brought down to 240 (by Julia Stadlmann), then 212 (by Axiom Math's AxiomProver) and finally to 186 (by GPT-6 Astra).
 
 <Fragment slot='refs'>
 
-- Template.
+1. Stadlmann, J. (2026). Bounded gaps between primes. arXiv preprint arXiv:2608.31126. https://arxiv.org/abs/2608.31126
+2. https://primegaps.axiommath.ai/bgp212.pdf 
+3. https://github.com/openai/PrimeGaps186
 
 </Fragment>
 
@@ -488,23 +1564,16 @@ The late 19th century:
 
 
 
+
 <Slide>
 
-## Russell's Paradox
+## Navier-Stokes Millenium Prize Problem
 
-<div class="theorem" style="border: 1px solid rgba(128, 128, 128, 0.4); border-radius: 20px; padding: 0px; margin: 15px 0; text-align: center;"> 
-  If $R = \{x : x \notin x\}$, then does $R \in R$ ?
-</div>
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='20%' caption='' />
-
-- Russell found this paradox in Frege's work
-- Logic allowed objects to apply to themselves too freely
-- The problem, according to Russell, was **unrestricted self-application**
+<SlideImage src={navierstokes} alt='navierstokes' align='center' width='50rem' caption='' />
 
 <Fragment slot='refs'>
 
-- Template.
+1. https://openai.com/index/navier-stokes-solution/
 
 </Fragment>
 
@@ -514,21 +1583,18 @@ The late 19th century:
 
 
 
+
 <Slide>
 
-## Russell's Theory of Types
+## The Future of Math
 
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
+Based on the current trends, AI will definitely get much better than any human mathematician at solving math problems.
 
-- Russell introduced type theory to restrict the kinds of applications possible in logic
-- His system of the **ramified theory of types** resolved the paradoxes
-- The problem was that it made ordinary mathematics painful and awkward to do
+Problem solving is an integral part of math, and the fact that AI might do it better than us is definitely unnerving.
 
-<Fragment slot='refs'>
+Imagine a computer, that when given a mathematical statement, can instantly produce a proof for the statement or its negation.
 
-- Template.
-
-</Fragment>
+What would be the impact of such a computer on the math community?
 
 </Slide>
 
@@ -536,605 +1602,19 @@ The late 19th century:
 
 
 
-<Slide>
-
-## Simple Type Theory
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Frank Ramsey argued that not all of Russell's ramified type theory was necessary for ordinary math
-- Ramsey and Chwistek simplified a lot of Russell's type theory to get **simple type theory**
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
 
 <Slide>
 
-## Church's Lambda Calculus
+## The Future of Math
 
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
+At the end of the day, mathematics is more than just problem solving. It requires choosing worthwhile problems, developing a theory around them, formalizing informal ideas, and producing explanations that humans care about.
 
-The **untyped lambda calculus** had very simple syntax: 
+Perhaps this will shift mathematics more in those directions in the future.
 
-- variables ($x$)
-- function abstraction ($\lambda x.t$) 
-- function application ($t u$)
-
-The Kleene-Rosser Paradox showed that the lambda calculus was inconsistent, since it allowed unrestricted self-reference (like $xx$)
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
+Or maybe AI will get good at understanding humans and why we do math. And then it will do those things as well.
 
 </Slide>
 
-
-
-
-
-<Slide>
-
-## Simply Typed Lambda Calculus
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-Church's 1940 paper “A Formulation of the Simple Theory of Types” combined lambda calculus with simple type theory.
-
-Now, for $(xx)$ to be possible, it would require $(x : A \to B)$ and $(x : A)$ at the same time.
-
-He also showed that the simply typed lambda calculus was **equivalent** to higher-order logic.
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Gentzen's work on proof theory
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-Gentzen introduced **natural deduction** and **sequent calculus**.
-
-This aligned much more with how mathematicians actually did math, as compared to the axiomatic Hilbert-style systems.
-
-If you have separately proven $A$ and $A \to B$, then you can infer $B$
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Curry - Howard - de Bruijn Correspondence
-
-|**Logic**|**Program**|
-|:---:|:---:|
-|Propositions|Types|
-|$A \land B$|$A \times B$|
-|$A \lor B$|$A + B$|
-|$A \to B$|$A \to B$|
-|$\forall x:A,\; B(x)$|$(x : A) \to B(x)$|
-|$\exists x:A,\; B(x)$|$(x : A) \times B(x)$|
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Brouwer-Heyting-Kolmogorov Interpretation
-
-The Curry-Howard correspondence aligns itself with intuitionistic logic, making proofs constructive.
-
-They interpret:
-
-- $A \lor B$ as a disjunction of either a proof of $A$ or a proof of $B$
-- $\exists x, P(x)$ as a pair $(x,P(x))$, which involves constructing such an $x$
-
-Classical mathematics involves non-constructive elements such as the Law of the Excluded Middle $(A \lor \neg A)$ and the Axiom of Choice.
-
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Automath
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-In 1967, Nicolaas de Bruijn started Automath.
-
-- Proofs were explicit objects
-- Proof checking was type checking
-- Definitions would be unfolded
-- The system rests on a small trusted kernel
-
-Jutting translated Landau's Foundations of Analysis into Automath and checked its correctness
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Tactics
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-The LCF (Logic of Computable Functions) Theorem Prover was developed by Robin Milner based on Dana Scott's ideas.
-
-Writing proof terms directly was difficult, so it introduced **tactics** to make this easier.
-
-This is safe because errors at the tactic stage do not endanger soundness, since every proof term still has to pass through the trusted kernel.
-
-```mermaid
-graph LR
-  A(Tactics) --> B(Proof Terms)
-  B --> C(Kernel)
-```
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## More developments in Type Theory
-
-- Per Martin-Löf made several contributions, including introducing **dependent types** in his **intuitionistic type theory** to create a constructive foundation of math and creating an infinite universe of types to avoid Girard's paradox (when `Type : Type`)
-- Thierry Coquand and Gérard Huet developed the **Calculus of Inductive Constructions**, which is used in proof assistants like Rocq and Lean
-- Classical (non-constructive) math can be checked in certain proof assistants by adding the Axiom of Choice (LEM can be proven from Choice via Diaconescu's Theorem)
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Barendregt's Lambda Cube
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## More Proof Assistants
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-Several proof assistants started being developed:
-
-- HOL Family
-- Mizar
-- Isabelle
-- Idris
-- Agda
-- Rocq
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
-
-- In 1990, Voevodsky and Kapranov published “∞-groupoids as a model for a homotopy category”
-- It claimed to provide a formulation and proof of Grothendieck's idea of connecting ∞-groupoids and homotopy types
-- They decided to apply these ideas to develop motivic cohomology
-
-<Fragment slot='refs'>
-
-1. Kapranov, M. M., & Voevodsky, V. A. (1990). ∞-groupoids as a model for a homotopy category. Russian Mathematical Surveys, 45(5), 239–240.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
-
-- Previously in 1986, Spencer Bloch published “Algebraic Cycles and Higher K-theory”
-- It was groundbreaking for motivic cohomology
-- Unfortunately, Andrei Suslin found a mistake in Lemma 1.1, and it could not be fixed
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
-
-- In 1993, Voevodsky, Suslin and Friedlander took a new approach in “Cohomological Theory of Presheaves with Transfers” 
-- While giving lectures at the IAS in 1999, Voevodsky and Deligne discovered a mistake in a key lemma in the paper
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-> This story got me scared. Starting from 1993, multiple groups of mathematicians studied my paper at seminars and used it in their work and none of them noticed the mistake. ... A technical argument by a trusted author, which is hard to check and looks similar to arguments known to be correct, is hardly ever checked in detail.
->
-> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
-
-- In 1998, Carlos Simpson published “Homotopy types of strict 3-groupoids” 
-- It contradicted the main result of Voevodsky and Kapranov's “∞-groupoids as a model for a homotopy category”
-- Voevodsky could not find the mistake till 2013
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-> It soon became clear that the only real long-term solution to the problems that I encountered is to start using computers in the verification of mathematical reasoning. Among mathematicians computer proof verification was almost a forbidden subject. A conversation ... would invariably drift to the Goedel Incompleteness Theorem (which has nothing to do with the actual problem).
->
-> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Univalent Foundations of Math
-
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
-
-Voevodsky and other mathematicians started working on Homotopy Type Theory and Univalent Foundations of Math.
-
-Types become spaces, terms become points, equalities become paths, and equalities of equalities become homotopies between paths.
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Voevodsky's Experience
-
-> I now do my mathematics with a proof assistant and do not have to worry all the time about mistakes in my arguments or about how to convince others that my arguments are correct. Sooner or later computer proof assistants will become the norm, but the longer this process takes the more misery associated with mistakes and with unnecessary self-verification the practitioners of the field will have to endure.
->
-> <cite style={{display: 'block', textAlign: 'right'}}>— Vladimir Voevodsky</cite>
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Lean
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Broad Themes: New Connections
-
-- A lot of AI discoveries involve combining existing techniques from different math fields, rather than inventing fundmentally new methods
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Template
-
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
-
-- Template
-
-<Fragment slot='refs'>
-
-- Template.
-
-</Fragment>
-
-</Slide>
-
-
-
-
-
-<Slide>
-
-## Code works
-
-```lean title="Hello.lean"
-def hello : String := "Hello, slides!"
-
-theorem hello_nonempty : hello ≠ "" := by
-  decide
-```
-
-Syntax highlighting uses the site's existing Shiki setup.
-
-</Slide>
 
 
 
@@ -1142,7 +1622,7 @@ Syntax highlighting uses the site's existing Shiki setup.
 
 <Slide center>
 
-# Thanks!
+# The End
 
 [Back to the site](/)
 
