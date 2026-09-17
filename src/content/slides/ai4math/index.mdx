@@ -7,6 +7,7 @@ draft: false
 
 import Slide from '@/components/slides/Slide.astro'
 import SlideImage from '@/components/slides/SlideImage.astro'
+import YouTubeVideo from '@/components/slides/YouTubeVideo.astro'
 import shirogane from './images/shirogane.jpg'
 import logictheorist from './images/logictheorist.jpg'
 import fourcolor from './images/fourcolor.jpg'
@@ -33,6 +34,8 @@ import kevin from './images/kevin.jpg'
 import perfectoid from './images/perfectoid.jpg'
 import scholze from './images/scholze.jpg'
 import tao from './images/tao.jpg'
+import gowers from './images/gowers.jpg'
+import viazovska from './images/viazovska.jpg'
 import flt from './images/flt.jpg'
 import transformer from './images/transformer.jpg'
 import deepblue from './images/deepblue.jpg'
@@ -50,7 +53,7 @@ import go from './images/go.jpg'
 
 <Slide center>
 
-# AI for Math and Lean
+# AI, Lean and the Future of Mathematics
 
 Malhar A. Patel
 
@@ -421,7 +424,7 @@ The late 19th century:
   If $R = \{x : x \notin x\}$, then does $R \in R$ ?
 </div>
 
-<SlideImage src={russell} alt='russell' wrap align='right' width='20%' caption='' />
+<SlideImage src={russell} alt='russell' wrap align='right' width='22%' caption='Bertrand Russell' />
 
 Russell found this paradox in Frege's work.
 
@@ -476,7 +479,7 @@ Ramsey and Chwistek simplified a lot of Russell's type theory to get **simple ty
 
 ## Church's Lambda Calculus
 
-<SlideImage src={church} alt='church' wrap align='right' width='30%' caption='' />
+<SlideImage src={church} alt='church' wrap align='right' width='30%' caption='Alonzo Church' />
 
 The **untyped lambda calculus** had very simple syntax: 
 
@@ -516,7 +519,7 @@ He also showed that the simply typed lambda calculus was **equivalent** to highe
 
 ## Gentzen's work on proof theory
 
-<SlideImage src={gentzen} alt='gentzen' wrap align='right' width='30%' caption='' />
+<SlideImage src={gentzen} alt='gentzen' wrap align='right' width='30%' caption='Gerhard Gentzen' />
 
 Gentzen introduced **natural deduction** and **sequent calculus**.
 
@@ -533,7 +536,7 @@ This aligned much more with how mathematicians actually did math, compared to th
 
 <Slide>
 
-## Curry - Howard - de Bruijn Correspondence
+## Curry-Howard-de Bruijn Correspondence
 
 |**Logic**|**Program**|
 |:---:|:---:|
@@ -675,7 +678,7 @@ Played a major role in the adoption of proof assistants by mathematicians
 
 ## Voevodsky's Experience
 
-<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='' />
+<SlideImage src={voevodsky} alt='voevodsky' wrap align='right' width='30%' caption='Vladimir Voevodsky' />
 
 In 1990, Voevodsky and Kapranov published “∞-groupoids as a model for a homotopy category”.
 
@@ -725,7 +728,7 @@ Unfortunately, Andrei Suslin found a mistake in Lemma 1.1, and the proof could n
 
 In 1993, Voevodsky, Suslin and Friedlander took a new approach in “Cohomological Theory of Presheaves with Transfers” .
 
-While giving lectures at the IAS in 1999, Voevodsky and Deligne discovered a mistake in a key lemma in the paper.
+While giving lectures at the IAS in 1999, Voevodsky and Pierre Deligne discovered a mistake in a key lemma in the paper.
 
 <Fragment slot='refs'>
 
@@ -974,6 +977,8 @@ Within a year and a half, the main theorem on liquid tensor spaces was formalize
 
 ## Polynomial Freiman–Ruzsa Conjecture
 
+<SlideImage src={gowers} alt='gowers' wrap align='right' width='30%' caption='Tim Gowers' />
+
 In 2023, a proof of the PFR conejcture over $\mathbb{F}_2$ was published by Gowers, Green, Manners and Tao.
 
 Just within 3 weeks, the Lean community formalized the new paper in Lean and verified the result.
@@ -1045,7 +1050,9 @@ The project is still ongoing.
 
 Despite the strengths of Lean, formalizing a math paper was still hard.
 
-It required mathematicians to study a good amount of Lean. Mathlib contained very little graduate-level math, so most formalizations would require the authors to develop the foundations first. Moreover, proofs in Lean had to be more explicit than proofs in natural language (the de Bruijn factor in Lean ranges around 3 to 5).
+- It required mathematicians to study a good amount of Lean. 
+- Mathlib contained very little graduate-level math, so most formalizations would require the authors to develop the foundations first. 
+- Proofs in Lean had to be more explicit than proofs in natural language (the De Bruijn factor in Lean ranges around 3 to 5).
 
 </Slide>
 
@@ -1124,7 +1131,7 @@ Gauss, an autoformalization agent developed by Math Inc., formalized the theorem
 
 ## Sphere Packing in 8 & 24-dim
 
-<SlideImage src={ramanujan} alt='ramanujan' wrap align='right' width='30%' caption='' />
+<SlideImage src={viazovska} alt='viazovska' wrap align='right' width='30%' caption='Maryna Viazovska' />
 
 In 2024, Maryna Viazovska and Siddhartha Hariharan launched a project to formalize Viazovska's proof of Sphere Packing in 8 & 24-dimensions.
 
@@ -1153,8 +1160,6 @@ Now that AI was getting better, it was going to make formalization cheap and acc
 
 Mathematicians would publish papers as usual, and AI agents would autoformalize them into Lean. They didn't have to spend a lot of time learning Lean, and could focus on their research. No one would worry about mistakes anymore, since Lean would verify the results. Math research could be done much faster now.
 
-What a time to be alive!
-
 </Slide>
 
 
@@ -1168,7 +1173,7 @@ What a time to be alive!
 
 Before 2026, the idea that LLMs could do research level math was laughable. Math proofs needed the highest level of rigor, and most people were used to seeing LLMs hallucinate at simple tasks.
 
-However, if AI agents could get good enough at formalization, then they could formalize their arguments and get it verified by a proof assistant. The proof assistant acts as an external oracle that can catch all mistakes made by AI.
+However, if AI agents could get good enough at formalization, then they could formalize their arguments and get it verified by a proof assistant. The proof assistant acts as an external oracle that can catch all mathematical mistakes made by AI.
 
 </Slide>
 
@@ -1245,10 +1250,22 @@ AlphaGo used MCTS with a policy and value network, and learnt from both human ga
 
 <Slide>
 
-## Videos
+## Clip 1 (27:20 to 27:46)
 
-- https://youtu.be/WXuK6gekU1Y?t=1640
-- https://youtu.be/WXuK6gekU1Y?t=2391
+<YouTubeVideo videoId='WXuK6gekU1Y' start={1640} end={1666} title='AlphaGo documentary clip: Video 1' />
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
+## Clip 2 (39:51 to 41:21)
+
+<YouTubeVideo videoId='WXuK6gekU1Y' start={2391} end={2481} title='AlphaGo documentary clip: Video 2' />
 
 </Slide>
 
@@ -1262,7 +1279,7 @@ AlphaGo used MCTS with a policy and value network, and learnt from both human ga
 
 ## How does this relate to Math?
 
-There is a strong comparison to be made here:
+There is a strong comparison to be made here with AlphaGo:
 
 - Math has an objective verifier (proof assistants like Lean)
 - Proof assistants can be used to generate unlimited valid synthetic math data for training AIs 
@@ -1567,6 +1584,28 @@ In 2026, within a span of 3 days, it was brought down to 240 (by Julia Stadlmann
 
 <Slide>
 
+## Formalizing Fermat's Last Theorem
+
+<SlideImage src={fermat} alt='fermat' align='center' width='40rem' caption='' />
+
+This completed Freek Wiedijk's list of 100 problems for formalization.
+
+<Fragment slot='refs'>
+
+1. https://www.anthropic.com/research/formalizing-fermats-last-theorem
+2. https://www.cs.ru.nl/~freek/100/
+
+</Fragment>
+
+</Slide>
+
+
+
+
+
+
+<Slide>
+
 ## Navier-Stokes Millenium Prize Problem
 
 <SlideImage src={navierstokes} alt='navierstokes' align='center' width='50rem' caption='' />
@@ -1624,7 +1663,7 @@ Or maybe AI will get good at understanding humans and why we do math. And then i
 
 # The End
 
-[Back to the site](/)
+[Back to site](/)
 
 </Slide>
 
